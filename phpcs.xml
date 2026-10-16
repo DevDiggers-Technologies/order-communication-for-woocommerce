@@ -1,0 +1,63 @@
+<?xml version="1.0"?>
+<ruleset name="DevDiggers Order Communication for WooCommerce">
+	<description>WordPress Coding Standards for DevDiggers Order Communication for WooCommerce.</description>
+
+	<file>.</file>
+
+	<exclude-pattern>/devdiggers-framework/*</exclude-pattern>
+	<exclude-pattern>/node_modules/*</exclude-pattern>
+	<exclude-pattern>/vendor/*</exclude-pattern>
+	<exclude-pattern>/assets/*</exclude-pattern>
+	<exclude-pattern>/src/*</exclude-pattern>
+	<exclude-pattern>/bin/*</exclude-pattern>
+	<exclude-pattern>/i18n/*</exclude-pattern>
+
+	<arg name="extensions" value="php"/>
+	<arg name="colors"/>
+	<arg value="sp"/>
+
+	<config name="minimum_wp_version" value="6.5"/>
+	<config name="testVersion" value="7.4-"/>
+
+	<rule ref="WordPress">
+		<!-- DevDiggers house style: short array syntax across the catalog and framework. -->
+		<exclude name="Universal.Arrays.DisallowShortArraySyntax"/>
+		<!-- The autoloader maps DDWCOC_Foo_Bar to foo-bar.php, not class-ddwcoc-foo-bar.php. -->
+		<exclude name="WordPress.Files.FileName.InvalidClassFileName"/>
+	</rule>
+	<rule ref="Generic.Arrays.DisallowLongArraySyntax"/>
+
+	<!-- "Silence is golden" index.php guards contain no code by design. -->
+	<rule ref="Internal.NoCodeFound">
+		<exclude-pattern>index.php</exclude-pattern>
+	</rule>
+	<rule ref="PHPCompatibilityWP"/>
+
+	<rule ref="WordPress.WP.I18n">
+		<properties>
+			<property name="text_domain" type="array">
+				<element value="devdiggers-order-communication-for-woocommerce"/>
+			</property>
+		</properties>
+	</rule>
+
+	<!-- Capabilities registered by WooCommerce. -->
+	<rule ref="WordPress.WP.Capabilities">
+		<properties>
+			<property name="custom_capabilities" type="array">
+				<element value="manage_woocommerce"/>
+				<element value="edit_shop_orders"/>
+			</property>
+		</properties>
+	</rule>
+
+	<rule ref="WordPress.NamingConventions.PrefixAllGlobals">
+		<properties>
+			<property name="prefixes" type="array">
+				<element value="ddwcoc"/>
+				<element value="DDWCOC"/>
+				<element value="DDWCOrderCommunication"/>
+			</property>
+		</properties>
+	</rule>
+</ruleset>

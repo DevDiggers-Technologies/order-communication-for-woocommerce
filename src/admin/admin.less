@@ -1,0 +1,553 @@
+// Inbox tab counters: plain muted numbers.
+.subsubsub .count {
+	margin-left: 4px;
+	color: #9ca3af;
+	font-weight: 500;
+}
+
+.subsubsub li a.current .count {
+	color: #6b7280;
+}
+
+.subsubsub li a {
+	display: flex;
+	align-items: center;
+}
+
+// Inbox. White surfaces, ink text, one warm highlight for unread and the open thread.
+@ink: #1e1f21;
+@line: #f0f0f1;
+@grey: #6b7280;
+@hot: #ea580c;
+
+.ddwcoc-inbox {
+	display: grid;
+	grid-template-columns: 360px minmax(0, 1fr) 300px;
+	height: calc(100vh - 190px);
+	min-height: 600px;
+	border: 1px solid #f2f2f2;
+	border-radius: 12px;
+	background: #fff;
+	overflow: hidden;
+	color: @ink;
+
+	&.is-empty {
+		grid-template-columns: 360px;
+		height: auto;
+		min-height: 0;
+		width: max-content;
+		max-width: 100%;
+	}
+
+	a,
+	a:hover,
+	a:focus {
+		color: inherit;
+	}
+}
+
+// WooCommerce order status colors (WooCommerce admin CSS is not loaded on plugin screens).
+.ddwcoc-inbox mark.order-status {
+	display: inline-flex;
+	margin: 0;
+	padding: 0;
+	border-radius: 4px;
+	background: #e5e5e5;
+	color: #454545;
+	font-size: 11px;
+	font-weight: 500;
+	line-height: 1;
+	white-space: nowrap;
+
+	span {
+		margin: 0;
+		padding: 4px 8px;
+	}
+
+	&.status-processing { background: #c6e1c6; color: #2c4700; }
+	&.status-on-hold { background: #f8dda7; color: #573b00; }
+	&.status-completed { background: #c8d7e1; color: #003d66; }
+	&.status-cancelled,
+	&.status-failed { background: #eba3a3; color: #570000; }
+}
+
+.ddwcoc-inbox-list,
+.ddwcoc-inbox-thread,
+.ddwcoc-inbox-order {
+	display: flex;
+	flex-direction: column;
+	min-height: 0;
+}
+
+.ddwcoc-inbox-list {
+	border-right: 1px solid @line;
+
+	.is-empty & {
+		border-right: 0;
+	}
+}
+
+.ddwcoc-inbox-list-head {
+	padding: 18px 18px 0;
+	border-bottom: 1px solid @line;
+
+	h2 {
+		margin: 0 0 14px;
+		font-size: 16px;
+		font-weight: 600;
+	}
+
+	// Segments size to their labels so "Awaiting Reply" never collides with its neighbours.
+	.subsubsub {
+		display: flex;
+		gap: 2px;
+		width: 100%;
+		margin: 14px 0;
+		box-sizing: border-box;
+
+		li {
+			flex: 1 1 auto;
+			min-width: 0;
+			margin: 0;
+		}
+
+		li a {
+			justify-content: center;
+			gap: 6px;
+			padding: 6px 8px;
+			font-size: 12.5px;
+			white-space: nowrap;
+		}
+
+	}
+}
+
+.ddwcoc-inbox-search {
+	position: relative;
+
+	svg {
+		position: absolute;
+		top: 50%;
+		left: 12px;
+		transform: translateY(-50%);
+		color: #9ca3af;
+		pointer-events: none;
+	}
+
+	input[type='search'][name='s'] {
+		width: 100%;
+		min-height: 38px;
+		// Beats the framework's global input padding.
+		padding: 0 12px 0 36px !important;
+		border: 1px solid #e5e7eb;
+		border-radius: 8px;
+		background: #fff;
+		box-shadow: none;
+
+		&:focus {
+			border-color: @ink;
+			box-shadow: none;
+		}
+	}
+}
+
+.ddwcoc-inbox-items {
+	flex: 1;
+	overflow-y: auto;
+}
+
+.ddwcoc-inbox-none {
+	padding: 28px 22px 32px;
+	color: @grey;
+
+	svg {
+		color: #9ca3af;
+	}
+
+	h3 {
+		margin: 12px 0 4px;
+		color: @ink;
+		font-size: 14px;
+		font-weight: 600;
+	}
+
+	p {
+		margin: 0;
+		max-width: 280px;
+		font-size: 13px;
+		line-height: 1.5;
+	}
+}
+
+.ddwcoc-inbox-item {
+	position: relative;
+	display: flex;
+	gap: 12px;
+	padding: 14px 18px;
+	border-bottom: 1px solid @line;
+	color: @ink;
+	text-decoration: none;
+	transition: background-color 0.15s;
+
+	&:hover,
+	&:focus {
+		background: #fafafa;
+		color: @ink;
+		box-shadow: none;
+		outline: none;
+	}
+
+
+
+	&.is-active {
+		background: #fafafa;
+	}
+
+	&.has-unread {
+		strong,
+		.ddwcoc-inbox-item-preview {
+			color: @ink;
+			font-weight: 600;
+		}
+	}
+}
+
+.ddwcoc-inbox-avatar,
+.ddwcoc-inbox-customer-head .ddwcoc-inbox-avatar {
+	position: relative;
+	flex: none;
+	display: grid;
+	place-items: center;
+	width: 40px;
+	height: 40px;
+	border-radius: 50%;
+	background: #f3f4f6;
+	color: @grey;
+	font-weight: 600;
+	overflow: hidden;
+
+	// Initials show until (or if) the Gravatar loads.
+	&::before {
+		content: attr(data-initial);
+	}
+
+	img {
+		position: absolute;
+		inset: 0;
+		width: 100%;
+		height: 100%;
+		border-radius: 50%;
+	}
+}
+
+.ddwcoc-inbox-customer-head .ddwcoc-inbox-avatar {
+	width: 48px;
+	height: 48px;
+	font-size: 17px;
+}
+
+.ddwcoc-inbox-item-body {
+	flex: 1;
+	min-width: 0;
+}
+
+.ddwcoc-inbox-item-top {
+	display: flex;
+	align-items: baseline;
+	justify-content: space-between;
+	gap: 8px;
+
+	strong {
+		overflow: hidden;
+		font-weight: 500;
+		text-overflow: ellipsis;
+		white-space: nowrap;
+	}
+
+	time {
+		flex: none;
+		color: #9ca3af;
+		font-size: 12px;
+	}
+}
+
+.ddwcoc-inbox-item-preview {
+	display: block;
+	margin: 2px 0 8px;
+	overflow: hidden;
+	color: @grey;
+	font-size: 13px;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+
+	em {
+		font-style: normal;
+		color: #9ca3af;
+	}
+}
+
+.ddwcoc-inbox-item-meta {
+	display: flex;
+	align-items: center;
+	gap: 8px;
+	color: @grey;
+	font-size: 12px;
+}
+
+.ddwcoc-inbox-badge {
+	margin-left: auto;
+	padding: 2px 7px;
+	border-radius: 4px;
+	background: #fff7ed;
+	color: #c2410c;
+	font-size: 11px;
+	font-weight: 600;
+	line-height: 16px;
+}
+
+.ddwcoc-inbox-thread .ddwcoc-chat {
+	flex: 1;
+	min-height: 0;
+	margin: 0;
+	border: 0;
+	border-radius: 0;
+
+	.ddwcoc-chat-header {
+		padding: 14px 20px;
+		background: #fff;
+		border-bottom-color: @line;
+	}
+
+	.ddwcoc-chat-messages {
+		flex: 1;
+		max-height: none;
+		padding: 20px;
+	}
+
+	.ddwcoc-chat-form {
+		border-top-color: @line;
+	}
+}
+
+.ddwcoc-inbox-order {
+	border-left: 1px solid @line;
+	overflow-y: auto;
+}
+
+.ddwcoc-inbox-section {
+	padding: 20px;
+	border-bottom: 1px solid @line;
+
+	&:last-child {
+		border-bottom: 0;
+	}
+
+	h3 {
+		margin: 0;
+		font-size: 14px;
+		font-weight: 600;
+	}
+}
+
+.ddwcoc-inbox-customer-head {
+	display: flex;
+	align-items: center;
+	gap: 12px;
+
+	strong,
+	> div > span {
+		display: block;
+	}
+
+	strong {
+		font-size: 15px;
+		font-weight: 600;
+	}
+
+	> div > span {
+		color: @grey;
+		font-size: 12px;
+	}
+}
+
+.ddwcoc-inbox-stats {
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	gap: 8px;
+	margin-top: 16px;
+
+	> div {
+		padding: 10px 12px;
+		border: 1px solid #f2f2f2;
+		border-radius: 8px;
+	}
+
+	strong,
+	> div > span {
+		display: block;
+	}
+
+	strong {
+		font-size: 15px;
+		font-weight: 600;
+		white-space: nowrap;
+	}
+
+	> div > span {
+		color: @grey;
+		font-size: 12px;
+	}
+}
+
+.ddwcoc-inbox-contact,
+.ddwcoc-inbox-facts {
+	margin: 16px 0 0;
+
+	dt {
+		color: #9ca3af;
+		font-size: 11px;
+		font-weight: 500;
+		text-transform: uppercase;
+		letter-spacing: 0.04em;
+	}
+
+	dd {
+		margin: 2px 0 12px;
+		word-break: break-word;
+
+		&:last-child {
+			margin-bottom: 0;
+		}
+	}
+
+	a {
+		color: @ink;
+		text-decoration: none;
+
+		&:hover {
+			color: var(--ddfw-primary-color);
+		}
+	}
+
+	address {
+		font-style: normal;
+		line-height: 1.5;
+	}
+}
+
+.ddwcoc-inbox-facts {
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	gap: 0 12px;
+
+	dt {
+		grid-row: 1;
+	}
+
+	dd {
+		margin-bottom: 0;
+	}
+}
+
+.ddwcoc-inbox-section-head {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	gap: 8px;
+}
+
+.ddwcoc-inbox-lines {
+	margin: 16px 0 0;
+	padding: 0;
+
+	li {
+		display: flex;
+		align-items: center;
+		gap: 10px;
+		margin: 0 0 10px;
+	}
+}
+
+.ddwcoc-inbox-thumb img {
+	display: block;
+	width: 36px;
+	height: 36px;
+	border-radius: 6px;
+	object-fit: cover;
+	border: 1px solid #f2f2f2;
+}
+
+.ddwcoc-inbox-line-name {
+	flex: 1;
+	min-width: 0;
+
+	small {
+		margin-left: 4px;
+		color: @grey;
+	}
+}
+
+.ddwcoc-inbox-total {
+	display: flex;
+	justify-content: space-between;
+	margin: 4px 0 16px;
+	padding-top: 12px;
+	border-top: 1px dashed #e5e7eb;
+}
+
+.ddwcoc-inbox-edit {
+	width: 100%;
+	text-align: center;
+	justify-content: center;
+}
+
+@media (max-width: 1400px) {
+	.ddwcoc-inbox:not(.is-empty) {
+		grid-template-columns: 300px minmax(0, 1fr);
+	}
+
+	.ddwcoc-inbox-order {
+		display: none;
+	}
+}
+
+@media (max-width: 782px) {
+	.ddwcoc-inbox:not(.is-empty) {
+		grid-template-columns: 1fr;
+		height: auto;
+	}
+
+	.ddwcoc-inbox-items {
+		max-height: 320px;
+	}
+
+	.ddwcoc-inbox-thread .ddwcoc-chat-messages {
+		max-height: 60vh;
+	}
+}
+
+// The framework paints every header SVG path in the primary color; keep the logo's white parts.
+.devdiggers-wrap .ddfw-plugin-name svg path[fill='#fff'],
+.devdiggers-wrap .ddfw-mobile-header-plugin-name svg path[fill='#fff'] {
+	fill: #fff;
+}
+
+.devdiggers-wrap .ddfw-plugin-name svg path[fill='none'],
+.devdiggers-wrap .ddfw-mobile-header-plugin-name svg path[fill='none'] {
+	fill: none;
+}
+
+// Unread count on the Inbox header tab.
+.ddwcoc-menu-count {
+	display: inline-block;
+	min-width: 18px;
+	margin-left: 4px;
+	padding: 0 6px;
+	border-radius: 4px;
+	background: #fff7ed;
+	color: #c2410c;
+	font-size: 11px;
+	font-weight: 600;
+	line-height: 18px;
+	text-align: center;
+}

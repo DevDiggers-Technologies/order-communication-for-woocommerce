@@ -1,0 +1,1005 @@
+# Copyright (C) 2026 DevDiggers
+# This file is distributed under the GPLv3 or later.
+msgid ""
+msgstr ""
+"Project-Id-Version: DevDiggers Order Communication for WooCommerce 1.0.0\n"
+"Report-Msgid-Bugs-To: "
+"https://wordpress.org/support/plugin/devdiggers-order-communication-for-"
+"woocommerce\n"
+"POT-Creation-Date: 2026-10-16 08:51:25+00:00\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"PO-Revision-Date: 2026-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: en\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Poedit-Country: United States\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Poedit-KeywordsList: "
+"__;_e;_x:1,2c;_ex:1,2c;_n:1,2;_nx:1,2,4c;_n_noop:1,2;_nx_noop:1,2,3c;esc_"
+"attr__;esc_html__;esc_attr_e;esc_html_e;esc_attr_x:1,2c;esc_html_x:1,2c;\n"
+"X-Poedit-Basepath: ../\n"
+"X-Poedit-SearchPath-0: .\n"
+"X-Poedit-Bookmarks: \n"
+"X-Textdomain-Support: yes\n"
+"X-Generator: grunt-wp-i18n 1.0.3\n"
+
+#: functions.php:96
+#. translators: %1$s: opening link tag, %2$s: closing link tag
+msgid ""
+"DevDiggers Order Communication for WooCommerce is activated but not "
+"effective. It requires %1$sWooCommerce%2$s in order to work."
+msgstr ""
+
+#. Plugin Name of the plugin/theme
+msgid "DevDiggers Order Communication for WooCommerce"
+msgstr ""
+
+#: functions.php:134 includes/admin-dashboard.php:72
+msgid "Dashboard"
+msgstr ""
+
+#: functions.php:136 includes/admin-dashboard.php:92
+msgid "Configuration"
+msgstr ""
+
+#: functions.php:138
+msgid "Setup Wizard"
+msgstr ""
+
+#: functions.php:140
+msgid "Upgrade to Pro"
+msgstr ""
+
+#: functions.php:157
+msgid "Support"
+msgstr ""
+
+#: functions.php:158
+msgid "Documentation"
+msgstr ""
+
+#: functions.php:159
+msgid "Review"
+msgstr ""
+
+#: helper/communication-helper.php:80 helper/communication-helper.php:93
+msgid "Invalid order."
+msgstr ""
+
+#: helper/communication-helper.php:145
+msgid "Order communication is currently disabled."
+msgstr ""
+
+#: helper/communication-helper.php:149
+msgid ""
+"This conversation has been closed by the store. Contact us if you still "
+"need help."
+msgstr ""
+
+#: helper/communication-helper.php:154
+msgid "Messaging is not available for orders with this status."
+msgstr ""
+
+#: helper/communication-helper.php:180
+msgid "Message content should not be empty."
+msgstr ""
+
+#: helper/communication-helper.php:222
+msgid "There is some issue in sending message right now."
+msgstr ""
+
+#: helper/communication-helper.php:496
+msgid "Reply to this message"
+msgstr ""
+
+#: helper/dashboard/dashboard-helper.php:192
+#. translators: %d: minutes.
+msgid "%dm"
+msgstr ""
+
+#: helper/dashboard/dashboard-helper.php:199
+#. translators: 1: hours, 2: minutes.
+msgid "%1$dh %2$dm"
+msgstr ""
+
+#: helper/dashboard/dashboard-helper.php:203
+#. translators: 1: days, 2: hours.
+msgid "%1$dd %2$dh"
+msgstr ""
+
+#: includes/admin/admin-functions.php:120 includes/admin/setup-wizard.php:72
+#: includes/admin-dashboard.php:60 includes/admin-dashboard.php:65
+#: includes/admin-dashboard.php:66
+msgid "Order Communication"
+msgstr ""
+
+#: includes/admin/admin-functions.php:172
+#: includes/admin/admin-functions.php:176
+#: includes/front/front-functions.php:107
+msgid "Messages"
+msgstr ""
+
+#: includes/admin/admin-functions.php:209
+#. translators: 1: total messages, 2: unread messages.
+msgid "%1$d messages, %2$d unread"
+msgstr ""
+
+#: includes/admin/setup-wizard.php:73
+msgid ""
+"Welcome to DevDiggers Order Communication for WooCommerce! Follow these "
+"quick steps to give every order its own live conversation with your "
+"customer."
+msgstr ""
+
+#: includes/admin/setup-wizard.php:77
+msgid "Welcome"
+msgstr ""
+
+#: includes/admin/setup-wizard.php:81 includes/admin-dashboard.php:96
+msgid "General"
+msgstr ""
+
+#: includes/admin/setup-wizard.php:82
+msgid "Messaging Basics"
+msgstr ""
+
+#: includes/admin/setup-wizard.php:83
+msgid "Turn on order conversations and choose who gets notified."
+msgstr ""
+
+#: includes/admin/setup-wizard.php:88
+msgid "Ready!"
+msgstr ""
+
+#: includes/admin/setup-wizard.php:89
+msgid "You are all set! Customers can now message you from every order."
+msgstr ""
+
+#: includes/admin/setup-wizard.php:90
+msgid ""
+"Answer customers from the Inbox or right on the order screen. Match the "
+"chat to your brand under Configuration > Chat."
+msgstr ""
+
+#: includes/admin/setup-wizard.php:105
+msgid "Welcome to Order Communication!"
+msgstr ""
+
+#: includes/admin/setup-wizard.php:106
+msgid ""
+"Give every order a private, live chat between your store and the customer, "
+"with read receipts, email alerts and one shared Inbox for your team."
+msgstr ""
+
+#: includes/admin/setup-wizard.php:162
+#: templates/admin/configuration/configuration-template.php:53
+msgid "Enable Order Communication"
+msgstr ""
+
+#: includes/admin/setup-wizard.php:162
+msgid "Show the conversation on each order in My Account."
+msgstr ""
+
+#: includes/admin/setup-wizard.php:163
+msgid "Email the Store on New Messages"
+msgstr ""
+
+#: includes/admin/setup-wizard.php:163
+msgid "Get an email when a customer writes."
+msgstr ""
+
+#: includes/admin/setup-wizard.php:164
+msgid "Email Customers on Replies"
+msgstr ""
+
+#: includes/admin/setup-wizard.php:164
+msgid "Customers get an email with a link back to the conversation."
+msgstr ""
+
+#: includes/admin-dashboard.php:77
+msgid "Inbox"
+msgstr ""
+
+#: includes/admin-dashboard.php:82
+msgid "Communications"
+msgstr ""
+
+#: includes/admin-dashboard.php:87
+#: templates/order-communication-template.php:133
+msgid "Templates"
+msgstr ""
+
+#: includes/admin-dashboard.php:105
+msgid "Chat"
+msgstr ""
+
+#: includes/admin-dashboard.php:114 includes/admin-dashboard.php:327
+msgid "Automation"
+msgstr ""
+
+#: includes/admin-dashboard.php:123
+msgid "Emails"
+msgstr ""
+
+#: includes/admin-dashboard.php:132 includes/admin-dashboard.php:356
+msgid "Business Hours"
+msgstr ""
+
+#: includes/admin-dashboard.php:141 includes/admin-dashboard.php:376
+msgid "Message Limits"
+msgstr ""
+
+#: includes/admin-dashboard.php:174
+msgid "Answer common questions in one click with saved replies"
+msgstr ""
+
+#: includes/admin-dashboard.php:175
+msgid ""
+"Write your usual answers once and insert them into any conversation from "
+"the chat box. Order details fill themselves in."
+msgstr ""
+
+#: includes/admin-dashboard.php:177
+msgid "Unlimited saved replies, grouped by category"
+msgstr ""
+
+#: includes/admin-dashboard.php:178
+msgid "Search and insert a reply from the chat box"
+msgstr ""
+
+#: includes/admin-dashboard.php:179
+msgid "Customer name, order number, total and status filled in for you"
+msgstr ""
+
+#: includes/admin-dashboard.php:180
+msgid "See which replies your team uses most"
+msgstr ""
+
+#: includes/admin-dashboard.php:202
+msgid "Manage every conversation from one table"
+msgstr ""
+
+#: includes/admin-dashboard.php:203
+msgid ""
+"A sortable list of all order conversations with filters and bulk actions, "
+"plus exports for your records."
+msgstr ""
+
+#: includes/admin-dashboard.php:205
+msgid "Filter by unread, read, replied or closed"
+msgstr ""
+
+#: includes/admin-dashboard.php:206
+msgid "Mark many conversations read, unread or closed at once"
+msgstr ""
+
+#: includes/admin-dashboard.php:207
+msgid "Export conversations to CSV"
+msgstr ""
+
+#: includes/admin-dashboard.php:208
+msgid "Print a clean transcript of any order conversation"
+msgstr ""
+
+#: includes/admin-dashboard.php:295
+#. translators: 1: plugin name, 2: five-star rating link.
+msgid ""
+"Thank you for using %1$s. If you like it, please leave us a %2$s rating. It "
+"means a lot to us!"
+msgstr ""
+
+#: includes/admin-dashboard.php:297
+msgid "five star"
+msgstr ""
+
+#: includes/admin-dashboard.php:328
+msgid "Keep customers informed and acknowledged without typing a word."
+msgstr ""
+
+#: includes/admin-dashboard.php:329
+msgid "Reply instantly and post order updates by themselves"
+msgstr ""
+
+#: includes/admin-dashboard.php:330
+msgid ""
+"Pro answers every customer message right away and writes into the "
+"conversation each time an order changes status."
+msgstr ""
+
+#: includes/admin-dashboard.php:332
+msgid "Instant auto-reply, with an optional delay so a person can answer first"
+msgstr ""
+
+#: includes/admin-dashboard.php:333
+msgid "Your own message for each order status, posted and emailed automatically"
+msgstr ""
+
+#: includes/admin-dashboard.php:334
+msgid "Placeholders for customer name, order number, date, status and total"
+msgstr ""
+
+#: includes/admin-dashboard.php:357
+msgid "Tell customers when your team is around, and what happens when it is not."
+msgstr ""
+
+#: includes/admin-dashboard.php:358
+msgid "Set expectations with business hours"
+msgstr ""
+
+#: includes/admin-dashboard.php:359
+msgid ""
+"Pro shows customers whether your team is online and handles messages sent "
+"while you are closed."
+msgstr ""
+
+#: includes/admin-dashboard.php:361
+msgid "Opening hours and working days in your store timezone"
+msgstr ""
+
+#: includes/admin-dashboard.php:362
+msgid "Online or away status in the chat header"
+msgstr ""
+
+#: includes/admin-dashboard.php:363
+msgid "Block messages after hours, or accept them with an automatic notice"
+msgstr ""
+
+#: includes/admin-dashboard.php:377
+msgid "Protect your team from spam and floods of messages."
+msgstr ""
+
+#: includes/admin-dashboard.php:378
+msgid "Stop message floods before they reach your team"
+msgstr ""
+
+#: includes/admin-dashboard.php:379
+msgid ""
+"Pro caps how many messages one customer can send per day. Staff replies are "
+"never limited."
+msgstr ""
+
+#: includes/admin-dashboard.php:381
+msgid "Daily message limit per customer"
+msgstr ""
+
+#: includes/admin-dashboard.php:382
+msgid "Your own message when the limit is reached"
+msgstr ""
+
+#: includes/common/chat-assets.php:48
+msgid "Sending..."
+msgstr ""
+
+#: includes/common/chat-assets.php:49
+#: templates/order-communication-template.php:145
+msgid "Send"
+msgstr ""
+
+#: includes/common/chat-assets.php:50
+msgid "Message could not be sent. Please try again."
+msgstr ""
+
+#: includes/common/chat-assets.php:51
+#: templates/order-communication-template.php:88
+#: templates/order-communication-template.php:92
+msgid "Open"
+msgstr ""
+
+#: includes/common/chat-assets.php:52
+#: templates/admin/inbox/inbox-template.php:38
+#: templates/order-communication-template.php:88
+#: templates/order-communication-template.php:92
+msgid "Closed"
+msgstr ""
+
+#: includes/common/chat-assets.php:53
+#: templates/order-communication-template.php:97
+msgid "Close Conversation"
+msgstr ""
+
+#: includes/common/chat-assets.php:54
+#: templates/order-communication-template.php:97
+msgid "Reopen Conversation"
+msgstr ""
+
+#: includes/common/chat-assets.php:55
+msgid ""
+"Close this conversation? The customer will not be able to reply until you "
+"reopen it."
+msgstr ""
+
+#: includes/common/common-functions.php:185
+msgid "You are not allowed to do this."
+msgstr ""
+
+#: includes/email-notification-handler.php:44
+msgid "Order Communication: New Message"
+msgstr ""
+
+#: includes/email-notification-handler.php:45
+msgid ""
+"Sent when a customer or the store posts a new message on an order "
+"conversation. Store notifications go to the recipient set below; customer "
+"notifications go to the billing email."
+msgstr ""
+
+#: includes/email-notification-handler.php:64
+msgid "[{site_title}] New message on order #{order_number}"
+msgstr ""
+
+#: includes/email-notification-handler.php:73
+msgid "You have a new message"
+msgstr ""
+
+#: includes/file-handler.php:34
+msgid "[{site_title}] New message from {customer_name} on order #{order_number}"
+msgstr ""
+
+#: includes/file-handler.php:35
+msgid "New customer message"
+msgstr ""
+
+#: includes/file-handler.php:36
+msgid "Hi there,"
+msgstr ""
+
+#: includes/file-handler.php:36
+msgid "{customer_name} sent a new message about order #{order_number}:"
+msgstr ""
+
+#: includes/file-handler.php:39
+msgid "[{site_title}] New reply on your order #{order_number}"
+msgstr ""
+
+#: includes/file-handler.php:40
+msgid "You have a new reply"
+msgstr ""
+
+#: includes/file-handler.php:41
+msgid "Hi {customer_name},"
+msgstr ""
+
+#: includes/file-handler.php:41
+msgid "We have replied to your message about order #{order_number}:"
+msgstr ""
+
+#: includes/file-handler.php:41
+msgid "Thank you for shopping with {site_name}."
+msgstr ""
+
+#: includes/front/front-functions.php:63
+msgid "Questions about this order?"
+msgstr ""
+
+#: includes/front/front-functions.php:92
+msgid "Message sent successfully."
+msgstr ""
+
+#: includes/front/front-functions.php:130
+#. translators: %d: number of unread messages.
+msgid "%d new reply"
+msgid_plural "%d new replies"
+msgstr[0] ""
+msgstr[1] ""
+
+#: includes/front/front-functions.php:133
+#. translators: %d: number of messages.
+msgid "%d message"
+msgid_plural "%d messages"
+msgstr[0] ""
+msgstr[1] ""
+
+#: includes/front/front-functions.php:135
+msgid "Message us"
+msgstr ""
+
+#: templates/admin/configuration/chat-configuration-template.php:47
+msgid "Chat Colors"
+msgstr ""
+
+#: templates/admin/configuration/chat-configuration-template.php:48
+msgid ""
+"Match the chat bubbles to your brand. \"Own\" bubbles are the messages of "
+"whoever is viewing the chat (your team in admin, the customer in My "
+"Account)."
+msgstr ""
+
+#: templates/admin/configuration/chat-configuration-template.php:53
+msgid "Own Message Text"
+msgstr ""
+
+#: templates/admin/configuration/chat-configuration-template.php:54
+msgid "Text color of your own messages."
+msgstr ""
+
+#: templates/admin/configuration/chat-configuration-template.php:61
+msgid "Own Message Bubble"
+msgstr ""
+
+#: templates/admin/configuration/chat-configuration-template.php:62
+msgid "Bubble color of your own messages. Also used for the Send button."
+msgstr ""
+
+#: templates/admin/configuration/chat-configuration-template.php:69
+msgid "Other Party Text"
+msgstr ""
+
+#: templates/admin/configuration/chat-configuration-template.php:70
+msgid "Text color of messages from the other side."
+msgstr ""
+
+#: templates/admin/configuration/chat-configuration-template.php:77
+msgid "Other Party Bubble"
+msgstr ""
+
+#: templates/admin/configuration/chat-configuration-template.php:78
+msgid "Bubble color of messages from the other side."
+msgstr ""
+
+#: templates/admin/configuration/chat-configuration-template.php:87
+msgid "Live Updates"
+msgstr ""
+
+#: templates/admin/configuration/chat-configuration-template.php:88
+msgid ""
+"New messages appear automatically while the conversation is open, with no "
+"page reload."
+msgstr ""
+
+#: templates/admin/configuration/chat-configuration-template.php:93
+msgid "Refresh Interval (seconds)"
+msgstr ""
+
+#: templates/admin/configuration/chat-configuration-template.php:94
+msgid ""
+"How often an open conversation checks for new messages. Lower is more real "
+"time, higher is lighter on the server. Minimum 5."
+msgstr ""
+
+#: templates/admin/configuration/configuration-template.php:47
+msgid "General Settings"
+msgstr ""
+
+#: templates/admin/configuration/configuration-template.php:48
+msgid "Turn on order conversations and choose where customers can use them."
+msgstr ""
+
+#: templates/admin/configuration/configuration-template.php:54
+msgid "Show the conversation on the customer order page"
+msgstr ""
+
+#: templates/admin/configuration/configuration-template.php:55
+msgid ""
+"Customers chat with your team from My Account > Orders > View. Your team "
+"replies from the Inbox or the order screen."
+msgstr ""
+
+#: templates/admin/configuration/configuration-template.php:62
+msgid "Allowed Order Statuses"
+msgstr ""
+
+#: templates/admin/configuration/configuration-template.php:63
+msgid ""
+"Customers can only write on orders in these statuses. Leave empty to allow "
+"all. Your team can always reply."
+msgstr ""
+
+#: templates/admin/configuration/configuration-template.php:68
+msgid "All statuses"
+msgstr ""
+
+#: templates/admin/configuration/configuration-template.php:77
+msgid "Attachments"
+msgstr ""
+
+#: templates/admin/configuration/configuration-template.php:78
+msgid ""
+"Let customers send photos of a damaged parcel, a receipt or a size chart "
+"right in the order chat."
+msgstr ""
+
+#: templates/admin/configuration/configuration-template.php:83
+msgid "Share photos and documents in the chat with Pro"
+msgstr ""
+
+#: templates/admin/configuration/configuration-template.php:84
+msgid ""
+"Customers and your team attach files by picking, dragging or pasting them. "
+"Every file is checked by its real content."
+msgstr ""
+
+#: templates/admin/configuration/configuration-template.php:86
+msgid "Images, PDF, text and Word documents"
+msgstr ""
+
+#: templates/admin/configuration/configuration-template.php:87
+msgid "Several files per message, with your own size limit"
+msgstr ""
+
+#: templates/admin/configuration/configuration-template.php:88
+msgid "Images shown inline in the conversation"
+msgstr ""
+
+#: templates/admin/configuration/configuration-template.php:89
+msgid "Files attached to the notification emails"
+msgstr ""
+
+#: templates/admin/configuration/emails-configuration-template.php:36
+msgid "Store Notification Email"
+msgstr ""
+
+#: templates/admin/configuration/emails-configuration-template.php:37
+msgid ""
+"Sent to your team when a customer writes on an order. It quotes the message "
+"and links straight to the conversation in the Inbox."
+msgstr ""
+
+#: templates/admin/configuration/emails-configuration-template.php:42
+#: templates/admin/configuration/emails-configuration-template.php:99
+msgid "Enable"
+msgstr ""
+
+#: templates/admin/configuration/emails-configuration-template.php:43
+msgid "Email the store when a customer sends a message"
+msgstr ""
+
+#: templates/admin/configuration/emails-configuration-template.php:44
+msgid "Turn off if your team works from the Inbox and does not need email alerts."
+msgstr ""
+
+#: templates/admin/configuration/emails-configuration-template.php:51
+msgid "Recipients"
+msgstr ""
+
+#: templates/admin/configuration/emails-configuration-template.php:52
+msgid ""
+"Who receives store notifications. Separate several addresses with commas. "
+"Defaults to the site admin email."
+msgstr ""
+
+#: templates/admin/configuration/emails-configuration-template.php:61
+#: templates/admin/configuration/emails-configuration-template.php:109
+msgid "Subject"
+msgstr ""
+
+#: templates/admin/configuration/emails-configuration-template.php:62
+#: templates/admin/configuration/emails-configuration-template.php:110
+msgid "Subject line of the email. {site_title} is also supported."
+msgstr ""
+
+#: templates/admin/configuration/emails-configuration-template.php:71
+#: templates/admin/configuration/emails-configuration-template.php:119
+msgid "Heading"
+msgstr ""
+
+#: templates/admin/configuration/emails-configuration-template.php:72
+#: templates/admin/configuration/emails-configuration-template.php:120
+msgid "Main title shown at the top of the email."
+msgstr ""
+
+#: templates/admin/configuration/emails-configuration-template.php:81
+#: templates/admin/configuration/emails-configuration-template.php:129
+msgid "Email Message"
+msgstr ""
+
+#: templates/admin/configuration/emails-configuration-template.php:82
+#: templates/admin/configuration/emails-configuration-template.php:130
+msgid ""
+"Free sends this wording. Pro lets you rewrite the whole email with "
+"placeholders."
+msgstr ""
+
+#: templates/admin/configuration/emails-configuration-template.php:93
+msgid "Customer Notification Email"
+msgstr ""
+
+#: templates/admin/configuration/emails-configuration-template.php:94
+msgid ""
+"Sent to the customer when your team replies. It quotes the reply and has a "
+"button that opens the conversation in My Account. Private notes never send "
+"an email."
+msgstr ""
+
+#: templates/admin/configuration/emails-configuration-template.php:100
+msgid "Email the customer when the store replies"
+msgstr ""
+
+#: templates/admin/configuration/emails-configuration-template.php:101
+msgid ""
+"Recommended. Most customers do not revisit their account page until they "
+"get an email."
+msgstr ""
+
+#: templates/admin/dashboard/dashboard-template.php:52
+#. translators: %s: current user display name.
+msgid "Welcome back, %s! 👋🏻"
+msgstr ""
+
+#: templates/admin/dashboard/dashboard-template.php:53
+msgid "Here is how your team is keeping up with customer conversations"
+msgstr ""
+
+#: templates/admin/dashboard/dashboard-template.php:57
+msgid "Messages Received"
+msgstr ""
+
+#: templates/admin/dashboard/dashboard-template.php:64
+#: templates/admin/dashboard/dashboard-template.php:100
+msgid "Store Replies"
+msgstr ""
+
+#: templates/admin/dashboard/dashboard-template.php:71
+msgid "Active Conversations"
+msgstr ""
+
+#: templates/admin/dashboard/dashboard-template.php:78
+msgid "Awaiting Reply Now"
+msgstr ""
+
+#: templates/admin/dashboard/dashboard-template.php:86
+msgid "Message Activity"
+msgstr ""
+
+#: templates/admin/dashboard/dashboard-template.php:95
+msgid "Customer Messages"
+msgstr ""
+
+#: templates/admin/dashboard/dashboard-template.php:105
+msgid "No messages in this period"
+msgstr ""
+
+#: templates/admin/dashboard/dashboard-template.php:106
+msgid "Customer messages and your replies will be charted here."
+msgstr ""
+
+#: templates/admin/dashboard/dashboard-template.php:112
+msgid "Awaiting Your Reply"
+msgstr ""
+
+#: templates/admin/dashboard/dashboard-template.php:116
+msgid "Latest Customer Messages"
+msgstr ""
+
+#: templates/admin/dashboard/dashboard-template.php:138
+msgid "Inbox zero. Every customer has an answer."
+msgstr ""
+
+#: templates/admin/dashboard/dashboard-template.php:158
+#. translators: %d: unread messages.
+msgid "%d unread message"
+msgid_plural "%d unread messages"
+msgstr[0] ""
+msgstr[1] ""
+
+#: templates/admin/dashboard/dashboard-template.php:179
+msgid "See how fast your team really answers"
+msgstr ""
+
+#: templates/admin/dashboard/dashboard-template.php:180
+msgid ""
+"Pro measures your response speed and shows where every conversation stands, "
+"so nothing slips through."
+msgstr ""
+
+#: templates/admin/dashboard/dashboard-template.php:182
+msgid "Average first response time, with the trend against the previous period"
+msgstr ""
+
+#: templates/admin/dashboard/dashboard-template.php:183
+msgid "Reply rate: the share of conversations your team answered"
+msgstr ""
+
+#: templates/admin/dashboard/dashboard-template.php:184
+msgid "Daily response time chart"
+msgstr ""
+
+#: templates/admin/dashboard/dashboard-template.php:185
+msgid "Awaiting, answered and closed split of all conversations"
+msgstr ""
+
+#: templates/admin/dashboard/dashboard-template.php:202
+msgid "No customer messages yet"
+msgstr ""
+
+#: templates/admin/dashboard/dashboard-template.php:227
+#. translators: %s: human time difference.
+msgid "%s ago"
+msgstr ""
+
+#: templates/admin/inbox/inbox-template.php:36
+msgid "All"
+msgstr ""
+
+#: templates/admin/inbox/inbox-template.php:37
+msgid "Awaiting Reply"
+msgstr ""
+
+#: templates/admin/inbox/inbox-template.php:75
+msgid "Conversations"
+msgstr ""
+
+#: templates/admin/inbox/inbox-template.php:83
+msgid "Search name, email, order or message"
+msgstr ""
+
+#: templates/admin/inbox/inbox-template.php:83
+msgid "Search conversations"
+msgstr ""
+
+#: templates/admin/inbox/inbox-template.php:127
+msgid "No matching conversations"
+msgstr ""
+
+#: templates/admin/inbox/inbox-template.php:129
+msgid "You are all caught up"
+msgstr ""
+
+#: templates/admin/inbox/inbox-template.php:131
+msgid "No closed conversations"
+msgstr ""
+
+#: templates/admin/inbox/inbox-template.php:133
+msgid "No conversations yet"
+msgstr ""
+
+#: templates/admin/inbox/inbox-template.php:140
+msgid "Try a different name, email address, order number or word from the message."
+msgstr ""
+
+#: templates/admin/inbox/inbox-template.php:142
+msgid "Every customer message has been read. New ones will appear here."
+msgstr ""
+
+#: templates/admin/inbox/inbox-template.php:144
+msgid "Conversations you close from the chat header are kept here."
+msgstr ""
+
+#: templates/admin/inbox/inbox-template.php:146
+msgid ""
+"When a customer writes about an order, or your team sends the first "
+"message, the conversation shows up here."
+msgstr ""
+
+#: templates/admin/inbox/inbox-template.php:184
+msgid "Auto:"
+msgstr ""
+
+#: templates/admin/inbox/inbox-template.php:184
+msgid "You:"
+msgstr ""
+
+#: templates/admin/inbox/inbox-template.php:195
+#. translators: %d: unread messages.
+msgid "%d new"
+msgid_plural "%d new"
+msgstr[0] ""
+msgstr[1] ""
+
+#: templates/admin/inbox/inbox-template.php:247
+msgid "Registered customer"
+msgstr ""
+
+#: templates/admin/inbox/inbox-template.php:247
+msgid "Guest customer"
+msgstr ""
+
+#: templates/admin/inbox/inbox-template.php:255
+msgid "Orders"
+msgstr ""
+
+#: templates/admin/inbox/inbox-template.php:259
+msgid "Total spent"
+msgstr ""
+
+#: templates/admin/inbox/inbox-template.php:265
+msgid "Email"
+msgstr ""
+
+#: templates/admin/inbox/inbox-template.php:268
+msgid "Phone"
+msgstr ""
+
+#: templates/admin/inbox/inbox-template.php:272
+msgid "Ships to"
+msgstr ""
+
+#: templates/admin/inbox/inbox-template.php:272
+msgid "Address"
+msgstr ""
+
+#: templates/admin/inbox/inbox-template.php:283
+#: templates/order-communication-template.php:82
+#. translators: %s: order number.
+msgid "Order #%s"
+msgstr ""
+
+#: templates/admin/inbox/inbox-template.php:289
+msgid "Placed"
+msgstr ""
+
+#: templates/admin/inbox/inbox-template.php:291
+msgid "Payment"
+msgstr ""
+
+#: templates/admin/inbox/inbox-template.php:307
+msgid "Total"
+msgstr ""
+
+#: templates/admin/inbox/inbox-template.php:310
+msgid "Open Full Order"
+msgstr ""
+
+#: templates/order-communication-template.php:111
+msgid "No messages yet. Start the conversation with your customer."
+msgstr ""
+
+#: templates/order-communication-template.php:111
+msgid ""
+"Have a question about this order? Send us a message and we will get back to "
+"you."
+msgstr ""
+
+#: templates/order-communication-template.php:124
+msgid "Write a message... (Enter to send, Shift+Enter for a new line)"
+msgstr ""
+
+#: templates/order-communication-template.php:124
+msgid "Message"
+msgstr ""
+
+#: templates/order-communication-template.php:128
+msgid "Share photos and documents with Pro"
+msgstr ""
+
+#: templates/order-communication-template.php:129
+msgid "Attach"
+msgstr ""
+
+#: templates/order-communication-template.php:132
+msgid "Insert saved replies with Pro"
+msgstr ""
+
+#: templates/order-communication-template.php:136
+msgid "Write notes only your team can see with Pro"
+msgstr ""
+
+#: templates/order-communication-template.php:137
+#: templates/order-communication-template.php:200
+msgid "Private note"
+msgstr ""
+
+#: templates/order-communication-template.php:189
+msgid "You"
+msgstr ""
+
+#: templates/order-communication-template.php:202
+msgid "Automated"
+msgstr ""
+
+#: templates/order-communication-template.php:210
+msgid "Seen"
+msgstr ""
+
+#. Plugin URI of the plugin/theme
+msgid ""
+"https://github.com/DevDiggers-Technologies/order-communication-for-"
+"woocommerce"
+msgstr ""
+
+#. Description of the plugin/theme
+msgid ""
+"Give every WooCommerce order its own private conversation. Customers "
+"message you from My Account, your team replies from one shared Inbox, with "
+"read receipts and email alerts on both sides."
+msgstr ""
+
+#. Author of the plugin/theme
+msgid "DevDiggers"
+msgstr ""
+
+#. Author URI of the plugin/theme
+msgid "https://devdiggers.com/"
+msgstr ""
