@@ -1,6 +1,6 @@
 === DevDiggers Order Communication for WooCommerce ===
 Contributors: devdiggers
-Plugin URI: https://github.com/DevDiggers-Technologies/order-communication-for-woocommerce
+Plugin URI: https://devdiggers.com/product/woocommerce-order-communication/
 Author: DevDiggers
 Author URI: https://devdiggers.com/
 Tags: order chat, order messages, customer messages, customer support, woocommerce chat
@@ -27,7 +27,6 @@ Customer messages stay with the order in your own database. There is no chat ser
 
 * [Documentation](https://docs.devdiggers.com/woocommerce-order-communication/)
 * [Support](https://wordpress.org/support/plugin/devdiggers-order-communication-for-woocommerce/)
-* [Source code on GitHub](https://github.com/DevDiggers-Technologies/order-communication-for-woocommerce)
 * [Upgrade to Pro](https://devdiggers.com/product/woocommerce-order-communication/)
 
 = How the order chat works =

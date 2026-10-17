@@ -6,7 +6,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: "
 "https://wordpress.org/support/plugin/devdiggers-order-communication-for-"
 "woocommerce\n"
-"POT-Creation-Date: 2026-10-16 08:51:25+00:00\n"
+"POT-Creation-Date: 2026-10-17 13:41:05+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -208,7 +208,7 @@ msgid "Communications"
 msgstr ""
 
 #: includes/admin-dashboard.php:87
-#: templates/order-communication-template.php:133
+#: templates/order-communication-template.php:134
 msgid "Templates"
 msgstr ""
 
@@ -374,7 +374,7 @@ msgid "Sending..."
 msgstr ""
 
 #: includes/common/chat-assets.php:49
-#: templates/order-communication-template.php:145
+#: templates/order-communication-template.php:146
 msgid "Send"
 msgstr ""
 
@@ -950,36 +950,36 @@ msgstr ""
 msgid "Message"
 msgstr ""
 
-#: templates/order-communication-template.php:128
+#: templates/order-communication-template.php:129
 msgid "Share photos and documents with Pro"
 msgstr ""
 
-#: templates/order-communication-template.php:129
+#: templates/order-communication-template.php:130
 msgid "Attach"
 msgstr ""
 
-#: templates/order-communication-template.php:132
+#: templates/order-communication-template.php:133
 msgid "Insert saved replies with Pro"
 msgstr ""
 
-#: templates/order-communication-template.php:136
+#: templates/order-communication-template.php:137
 msgid "Write notes only your team can see with Pro"
 msgstr ""
 
-#: templates/order-communication-template.php:137
-#: templates/order-communication-template.php:200
+#: templates/order-communication-template.php:138
+#: templates/order-communication-template.php:201
 msgid "Private note"
 msgstr ""
 
-#: templates/order-communication-template.php:189
+#: templates/order-communication-template.php:190
 msgid "You"
 msgstr ""
 
-#: templates/order-communication-template.php:202
+#: templates/order-communication-template.php:203
 msgid "Automated"
 msgstr ""
 
-#: templates/order-communication-template.php:210
+#: templates/order-communication-template.php:211
 msgid "Seen"
 msgstr ""
 
