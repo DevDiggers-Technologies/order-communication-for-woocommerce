@@ -225,7 +225,9 @@ The DevDiggers services are provided by DevDiggers. By using them you agree to t
 
 == Source code and build tools ==
 
-The admin and storefront JavaScript and CSS in `assets/` are compiled from the human readable source in the `src/` folder, which ships with the plugin together with the build configuration.
+The admin and storefront JavaScript and CSS in `assets/` are compiled from the human readable source in the `src/` folder, which ships with the plugin. The full source, including the build configuration, is also published on GitHub:
+
+https://github.com/DevDiggers-Technologies/order-communication-for-woocommerce
 
 To build the assets from source:
 
