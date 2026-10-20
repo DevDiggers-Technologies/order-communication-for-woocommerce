@@ -22,7 +22,7 @@ if ( ! class_exists( 'DDWCOC_File_Handler' ) ) {
 	class DDWCOC_File_Handler {
 
 		/**
-		 * Email settings: the default wording plus the saved store recipient.
+		 * Email settings merged over defaults.
 		 *
 		 * @return array
 		 */
@@ -42,9 +42,12 @@ if ( ! class_exists( 'DDWCOC_File_Handler' ) ) {
 				],
 			];
 
-			// Free sends this fixed wording; only the store recipient can be changed.
-			if ( ! empty( $saved['store']['recipient'] ) && '' !== trim( $saved['store']['recipient'] ) ) {
-				$defaults['store']['recipient'] = $saved['store']['recipient'];
+			foreach ( $defaults as $type => $fields ) {
+				foreach ( $fields as $key => $value ) {
+					if ( isset( $saved[ $type ][ $key ] ) && '' !== trim( $saved[ $type ][ $key ] ) ) {
+						$defaults[ $type ][ $key ] = $saved[ $type ][ $key ];
+					}
+				}
 			}
 
 			return $defaults;

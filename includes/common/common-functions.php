@@ -145,6 +145,12 @@ if ( ! class_exists( 'DDWCOC_Common_Functions' ) ) {
 			$after_id = isset( $_POST['after_id'] ) ? absint( wp_unslash( $_POST['after_id'] ) ) : 0;
 			$content  = isset( $_POST['message'] ) ? sanitize_textarea_field( wp_unslash( $_POST['message'] ) ) : '';
 
+			$allowed = 'admin' === $context ? ( current_user_can( 'manage_woocommerce' ) || current_user_can( 'edit_shop_orders' ) ) : current_user_can( 'view_order', $order_id );
+
+			if ( ! $allowed ) {
+				wp_send_json_error( [ 'message' => esc_html__( 'You are not allowed to do this.', 'devdiggers-order-communication-for-woocommerce' ) ], 403 );
+			}
+
 			list( $helper, $order, $role ) = $this->ddwcoc_get_chat_access( $order_id, $context );
 
 			$result = $helper->ddwcoc_add_message( $order, $content, [ 'sender' => $role ] );
@@ -168,6 +174,12 @@ if ( ! class_exists( 'DDWCOC_Common_Functions' ) ) {
 			$context  = isset( $_POST['context'] ) ? sanitize_key( wp_unslash( $_POST['context'] ) ) : 'front';
 			$after_id = isset( $_POST['after_id'] ) ? absint( wp_unslash( $_POST['after_id'] ) ) : 0;
 
+			$allowed = 'admin' === $context ? ( current_user_can( 'manage_woocommerce' ) || current_user_can( 'edit_shop_orders' ) ) : current_user_can( 'view_order', $order_id );
+
+			if ( ! $allowed ) {
+				wp_send_json_error( [ 'message' => esc_html__( 'You are not allowed to do this.', 'devdiggers-order-communication-for-woocommerce' ) ], 403 );
+			}
+
 			list( $helper, $order, $role ) = $this->ddwcoc_get_chat_access( $order_id, $context );
 
 			wp_send_json_success( $this->ddwcoc_get_chat_payload( $helper, $order, $role, $after_id ) );
@@ -181,7 +193,7 @@ if ( ! class_exists( 'DDWCOC_Common_Functions' ) ) {
 		public function ddwcoc_ajax_set_conversation_status() {
 			check_ajax_referer( 'ddwcoc-chat', 'nonce' );
 
-			if ( ! DDWCOC_Communication_Helper::ddwcoc_is_staff() ) {
+			if ( ! current_user_can( 'manage_woocommerce' ) && ! current_user_can( 'edit_shop_orders' ) ) {
 				wp_send_json_error( [ 'message' => esc_html__( 'You are not allowed to do this.', 'devdiggers-order-communication-for-woocommerce' ) ], 403 );
 			}
 

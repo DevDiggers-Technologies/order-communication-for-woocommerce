@@ -2,7 +2,7 @@
 /**
  * Emails configuration template.
  *
- * @package DevDiggers Order Communication for WooCommerce
+ * @package WooCommerce Order Communication
  * @version 2.0.0
  */
 
@@ -23,12 +23,14 @@ if ( ! class_exists( 'DDWCOC_Emails_Configuration_Template' ) ) {
 		 * @param array $ddwcoc_configuration Configuration.
 		 */
 		public function __construct( $ddwcoc_configuration ) {
-			$emails = $ddwcoc_configuration['email_settings'];
+			$emails       = $ddwcoc_configuration['email_settings'];
+			$placeholders = sprintf(
+				/* translators: %s: placeholder list. */
+				esc_html__( 'Available placeholders: %s', 'devdiggers-order-communication-for-woocommerce' ),
+				'<strong>{message}</strong>, <strong>{reply_button}</strong>, <strong>{reply_url}</strong>, <strong>{customer_name}</strong>, <strong>{order_number}</strong>, <strong>{order_date}</strong>, <strong>{order_status}</strong>, <strong>{order_total}</strong>, <strong>{site_name}</strong>'
+			);
 
-			// The fixed body, as readable text for the locked preview.
-			$plain = function ( $html ) {
-				return trim( wp_strip_all_tags( str_replace( '</p>', "</p>\n\n", $html ) ) );
-			};
+			$message_help = esc_html__( 'The full body of the email. {message} is replaced with the chat message in a quote box and {reply_button} with a button that opens the conversation. If you remove {message}, the chat message is added at the end so it is never lost.', 'devdiggers-order-communication-for-woocommerce' );
 
 			$args = [
 				[
@@ -55,37 +57,31 @@ if ( ! class_exists( 'DDWCOC_Emails_Configuration_Template' ) ) {
 							'value'       => $emails['store']['recipient'],
 							'placeholder' => get_option( 'admin_email' ),
 						],
-						ddfw_locked_field(
-							[
-								'type'        => 'text',
-								'label'       => esc_html__( 'Subject', 'devdiggers-order-communication-for-woocommerce' ),
-								'description' => esc_html__( 'Subject line of the email. {site_title} is also supported.', 'devdiggers-order-communication-for-woocommerce' ),
-								'id'          => 'ddwcoc-email-store-subject',
-								'value'       => $emails['store']['subject'],
-							],
-							'ddwcoc'
-						),
-						ddfw_locked_field(
-							[
-								'type'        => 'text',
-								'label'       => esc_html__( 'Heading', 'devdiggers-order-communication-for-woocommerce' ),
-								'description' => esc_html__( 'Main title shown at the top of the email.', 'devdiggers-order-communication-for-woocommerce' ),
-								'id'          => 'ddwcoc-email-store-heading',
-								'value'       => $emails['store']['heading'],
-							],
-							'ddwcoc'
-						),
-						ddfw_locked_field(
-							[
-								'type'          => 'textarea',
-								'label'         => esc_html__( 'Email Message', 'devdiggers-order-communication-for-woocommerce' ),
-								'description'   => esc_html__( 'Free sends this wording. Pro lets you rewrite the whole email with placeholders.', 'devdiggers-order-communication-for-woocommerce' ),
-								'id'            => 'ddwcoc-email-store-message',
-								'value'         => $plain( $emails['store']['message'] ),
-								'rows'          => 6,
-							],
-							'ddwcoc'
-						),
+						[
+							'type'        => 'text',
+							'label'       => esc_html__( 'Subject', 'devdiggers-order-communication-for-woocommerce' ),
+							'description' => esc_html__( 'Subject line of the email. {site_title} is also supported.', 'devdiggers-order-communication-for-woocommerce' ),
+							'id'          => 'ddwcoc-email-store-subject',
+							'name'        => '_ddwcoc_email_settings[store][subject]',
+							'value'       => $emails['store']['subject'],
+						],
+						[
+							'type'        => 'text',
+							'label'       => esc_html__( 'Heading', 'devdiggers-order-communication-for-woocommerce' ),
+							'description' => esc_html__( 'Main title shown at the top of the email.', 'devdiggers-order-communication-for-woocommerce' ),
+							'id'          => 'ddwcoc-email-store-heading',
+							'name'        => '_ddwcoc_email_settings[store][heading]',
+							'value'       => $emails['store']['heading'],
+						],
+						[
+							'type'          => 'editor',
+							'label'         => esc_html__( 'Email Message', 'devdiggers-order-communication-for-woocommerce' ),
+							'description'   => $message_help . '<br />' . $placeholders,
+							'id'            => 'ddwcoc-email-store-message',
+							'name'          => '_ddwcoc_email_settings[store][message]',
+							'value'         => $emails['store']['message'],
+							'textarea_rows' => 10,
+						],
 					],
 				],
 				[
@@ -103,37 +99,31 @@ if ( ! class_exists( 'DDWCOC_Emails_Configuration_Template' ) ) {
 							'name'           => '_ddwcoc_enabled_customer_mail',
 							'value'          => $ddwcoc_configuration['enabled_customer_mail'],
 						],
-						ddfw_locked_field(
-							[
-								'type'        => 'text',
-								'label'       => esc_html__( 'Subject', 'devdiggers-order-communication-for-woocommerce' ),
-								'description' => esc_html__( 'Subject line of the email. {site_title} is also supported.', 'devdiggers-order-communication-for-woocommerce' ),
-								'id'          => 'ddwcoc-email-customer-subject',
-								'value'       => $emails['customer']['subject'],
-							],
-							'ddwcoc'
-						),
-						ddfw_locked_field(
-							[
-								'type'        => 'text',
-								'label'       => esc_html__( 'Heading', 'devdiggers-order-communication-for-woocommerce' ),
-								'description' => esc_html__( 'Main title shown at the top of the email.', 'devdiggers-order-communication-for-woocommerce' ),
-								'id'          => 'ddwcoc-email-customer-heading',
-								'value'       => $emails['customer']['heading'],
-							],
-							'ddwcoc'
-						),
-						ddfw_locked_field(
-							[
-								'type'          => 'textarea',
-								'label'         => esc_html__( 'Email Message', 'devdiggers-order-communication-for-woocommerce' ),
-								'description'   => esc_html__( 'Free sends this wording. Pro lets you rewrite the whole email with placeholders.', 'devdiggers-order-communication-for-woocommerce' ),
-								'id'            => 'ddwcoc-email-customer-message',
-								'value'         => $plain( $emails['customer']['message'] ),
-								'rows'          => 6,
-							],
-							'ddwcoc'
-						),
+						[
+							'type'        => 'text',
+							'label'       => esc_html__( 'Subject', 'devdiggers-order-communication-for-woocommerce' ),
+							'description' => esc_html__( 'Subject line of the email. {site_title} is also supported.', 'devdiggers-order-communication-for-woocommerce' ),
+							'id'          => 'ddwcoc-email-customer-subject',
+							'name'        => '_ddwcoc_email_settings[customer][subject]',
+							'value'       => $emails['customer']['subject'],
+						],
+						[
+							'type'        => 'text',
+							'label'       => esc_html__( 'Heading', 'devdiggers-order-communication-for-woocommerce' ),
+							'description' => esc_html__( 'Main title shown at the top of the email.', 'devdiggers-order-communication-for-woocommerce' ),
+							'id'          => 'ddwcoc-email-customer-heading',
+							'name'        => '_ddwcoc_email_settings[customer][heading]',
+							'value'       => $emails['customer']['heading'],
+						],
+						[
+							'type'          => 'editor',
+							'label'         => esc_html__( 'Email Message', 'devdiggers-order-communication-for-woocommerce' ),
+							'description'   => $message_help . '<br />' . $placeholders,
+							'id'            => 'ddwcoc-email-customer-message',
+							'name'          => '_ddwcoc_email_settings[customer][message]',
+							'value'         => $emails['customer']['message'],
+							'textarea_rows' => 10,
+						],
 					],
 				],
 			];

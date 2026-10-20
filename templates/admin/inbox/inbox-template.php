@@ -30,6 +30,7 @@ if ( ! class_exists( 'DDWCOC_Inbox_Template' ) ) {
 			$search   = isset( $_GET['s'] ) ? sanitize_text_field( wp_unslash( $_GET['s'] ) ) : '';
 			$filter   = isset( $_GET['status_filter'] ) ? sanitize_key( wp_unslash( $_GET['status_filter'] ) ) : '';
 			$order_id = isset( $_GET['order_id'] ) ? absint( $_GET['order_id'] ) : 0;
+			$shown    = isset( $_GET['shown'] ) ? max( 50, absint( $_GET['shown'] ) ) : 50;
 			// phpcs:enable
 
 			$filters = [
@@ -43,7 +44,9 @@ if ( ! class_exists( 'DDWCOC_Inbox_Template' ) ) {
 			}
 
 			$inbox  = new DDWCOC_Inbox_Helper( $search );
-			$rows   = $inbox->ddwcoc_get_rows( $filter );
+			$rows   = $inbox->ddwcoc_get_rows( $filter, $shown + 1 );
+			$more   = count( $rows ) > $shown;
+			$rows   = array_slice( $rows, 0, $shown );
 			$counts = $inbox->ddwcoc_get_status_counts( array_keys( $filters ) );
 
 			// One query loads every row's latest message and its meta, instead of one per row.
@@ -66,6 +69,7 @@ if ( ! class_exists( 'DDWCOC_Inbox_Template' ) ) {
 				[
 					's'             => $search,
 					'status_filter' => $filter,
+					'shown'         => $shown > 50 ? $shown : 0,
 				]
 			);
 			?>
@@ -200,6 +204,11 @@ if ( ! class_exists( 'DDWCOC_Inbox_Template' ) ) {
 								</span>
 							</a>
 						<?php endforeach; ?>
+						<?php if ( $more ) : ?>
+							<p class="ddwcoc-inbox-more" style="margin:0;padding:12px 16px;text-align:center;">
+								<a class="button" href="<?php echo esc_url( add_query_arg( array_merge( $keep, [ 'shown' => $shown + 50 ] ), DDWCOC_Communication_Helper::ddwcoc_get_inbox_url( $order_id ) ) ); ?>"><?php esc_html_e( 'Show older conversations', 'devdiggers-order-communication-for-woocommerce' ); ?></a>
+							</p>
+						<?php endif; ?>
 					</div>
 				</aside>
 

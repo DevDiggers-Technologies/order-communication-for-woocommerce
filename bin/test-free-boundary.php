@@ -116,7 +116,7 @@ foreach ( $php as $relative => $contents ) {
 }
 
 // 4. No Pro business logic left behind in shared files: saved replies, private-note writes,
-// automation, business hours, limits, email wording, response analytics.
+// automation, business hours, limits, response analytics.
 $pro_logic = [
 	'_ddwcoc_message_templates',
 	'message_templates',

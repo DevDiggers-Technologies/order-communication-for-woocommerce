@@ -125,7 +125,7 @@ if ( ! class_exists( 'DDWCOC_Order_Communication_Template' ) ) {
 						<div class="ddwcoc-chat-toolbar">
 							<?php $screen = function_exists( 'get_current_screen' ) ? get_current_screen() : null; ?>
 							<?php if ( $is_staff && $screen && '_page_ddwcoc-dashboard' === substr( $screen->id, -22 ) ) : ?>
-								<?php // Pro composer tools, inert. Inbox only: the framework styles the PRO tag on its own screens. ?>
+								<?php // Upsell markers for features sold separately; no code behind them ships here. Inbox only: the framework styles the PRO tag on its own screens. ?>
 								<span class="ddwcoc-chat-tool ddfw-upgrade-to-pro-tag-wrapper" aria-disabled="true" title="<?php esc_attr_e( 'Share photos and documents with Pro', 'devdiggers-order-communication-for-woocommerce' ); ?>">
 									<svg class="ddwcoc-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m21.44 11.05-9.19 9.19a6 6 0 0 1-8.49-8.49l8.57-8.57A4 4 0 1 1 18 8.84l-8.59 8.57a2 2 0 0 1-2.83-2.83l8.49-8.48"/></svg><?php esc_html_e( 'Attach', 'devdiggers-order-communication-for-woocommerce' ); ?>
 									<?php echo wp_kses_post( ddfw_get_pro_tag() ); ?>

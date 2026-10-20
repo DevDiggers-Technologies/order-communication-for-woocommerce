@@ -399,7 +399,7 @@ if ( ! class_exists( 'DDWCOC_Admin_Dashboard' ) ) {
 
 			if ( $this->dashboard->is_a_plugin_page() ) {
 				// phpcs:ignore WordPress.Security.NonceVerification.Recommended -- Read-only screen check.
-				if ( isset( $_GET['menu'] ) && 'inbox' === $_GET['menu'] ) {
+				if ( isset( $_GET['menu'] ) && 'inbox' === sanitize_key( wp_unslash( $_GET['menu'] ) ) ) {
 					\DDWCOrderCommunication\Includes\Common\DDWCOC_Chat_Assets::ddwcoc_enqueue( $this->ddwcoc_configuration );
 				}
 

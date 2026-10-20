@@ -62,6 +62,7 @@ The Inbox lists every order conversation in one place, newest first, so nobody h
 * The store gets an email when a customer writes, with the message quoted and a link to the conversation.
 * The customer gets an email when you reply, with a button that opens the chat in My Account.
 * Send store alerts to one or more email addresses.
+* Edit the subject, heading and message of both emails, with placeholders for the customer name, order number, order total and more.
 * The emails use your WooCommerce email template, header and footer.
 
 === Unread counts where your team already works ===
@@ -99,7 +100,6 @@ The free plugin is a complete order chat. [Pro](https://devdiggers.com/product/w
 
 * **Business hours**: online or away status in the chat, and what happens to messages sent while you are closed.
 * **Message limits**: a daily cap per customer to stop spam and floods.
-* **Email editor**: rewrite the subject, heading and body of both emails, with placeholders.
 
 === Records and reporting (Pro) ===
 
@@ -167,7 +167,7 @@ Yes. Under **Configuration > General**, choose the order statuses customers can 
 
 = Can I change the email wording? =
 
-The free plugin sends a clear default email to the store and to the customer, and you choose who receives the store alerts. Editing the subject, heading and message is part of Pro.
+Yes. Under **Configuration > Emails** you can edit the subject, heading and message of the store and customer emails, use placeholders such as {customer_name} and {order_number}, and choose who receives the store alerts.
 
 = Does it work with HPOS? =
 
@@ -225,9 +225,7 @@ The DevDiggers services are provided by DevDiggers. By using them you agree to t
 
 == Source code and build tools ==
 
-The admin and storefront JavaScript and CSS in `assets/` are compiled from the human readable source in the `src/` folder, which ships with the plugin. The full source, including the build configuration, is also published on GitHub:
-
-https://github.com/DevDiggers-Technologies/order-communication-for-woocommerce
+The admin and storefront JavaScript and CSS in `assets/` are compiled from the human readable source in the `src/` folder, which ships with the plugin together with the build configuration.
 
 To build the assets from source:
 

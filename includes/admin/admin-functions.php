@@ -92,18 +92,26 @@ if ( ! class_exists( 'DDWCOC_Admin_Functions' ) ) {
 		}
 
 		/**
-		 * Sanitize email settings: Free saves only the store recipient.
-		 *
-		 * Wording saved earlier with Pro is kept as it is, so it comes back after an upgrade.
+		 * Sanitize email settings.
 		 *
 		 * @param mixed $input type => fields.
 		 * @return array
 		 */
 		public function ddwcoc_sanitize_email_settings( $input ) {
-			$settings   = (array) get_option( '_ddwcoc_email_settings', [] );
+			$settings = [];
+
+			foreach ( [ 'store', 'customer' ] as $type ) {
+				$fields = isset( $input[ $type ] ) ? (array) $input[ $type ] : [];
+
+				foreach ( [ 'subject', 'heading' ] as $key ) {
+					$settings[ $type ][ $key ] = isset( $fields[ $key ] ) ? sanitize_text_field( $fields[ $key ] ) : '';
+				}
+
+				$settings[ $type ]['message'] = isset( $fields['message'] ) ? wp_kses_post( $fields['message'] ) : '';
+			}
+
 			$recipients = isset( $input['store']['recipient'] ) ? array_filter( array_map( 'sanitize_email', array_map( 'trim', explode( ',', (string) $input['store']['recipient'] ) ) ) ) : [];
 
-			$settings['store']              = isset( $settings['store'] ) ? (array) $settings['store'] : [];
 			$settings['store']['recipient'] = implode( ', ', array_filter( $recipients, 'is_email' ) );
 
 			return $settings;
