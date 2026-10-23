@@ -29,6 +29,7 @@ Customer messages stay with the order in your own database. There is no chat ser
 * [Pro Demo](https://demo.devdiggers.com/woocommerce-order-communication/)
 * [Documentation](https://docs.devdiggers.com/woocommerce-order-communication/)
 * [Support](https://wordpress.org/support/plugin/devdiggers-order-communication-for-woocommerce/)
+* [Free vs Pro](https://devdiggers.com/product/woocommerce-order-communication/#free-vs-pro)
 * [Upgrade to Pro](https://devdiggers.com/product/woocommerce-order-communication/)
 
 = How the order chat works =
