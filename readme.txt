@@ -1,4 +1,4 @@
-=== DevDiggers Order Communication for WooCommerce ===
+=== Order Communication for WooCommerce - Order Chat & Customer Messages ===
 Contributors: devdiggers
 Plugin URI: https://devdiggers.com/product/woocommerce-order-communication/
 Author: DevDiggers
@@ -19,12 +19,14 @@ Order chat for WooCommerce. Customers message you about an order from My Account
 
 When a customer has a question about an order, it usually lands in your email inbox with no order number, gets forwarded around, and waits. You then search WooCommerce for the order, reply from your mail client, and hope the customer sees it.
 
-**DevDiggers Order Communication for WooCommerce** gives every WooCommerce order its own private order chat. The customer writes from **My Account > Orders > View**, right under the order details. Your team answers from a dedicated **Inbox** in the WordPress admin, or straight from the order edit screen, with the customer and the order beside the messages.
+This **[WooCommerce order communication plugin](https://devdiggers.com/product/woocommerce-order-communication/)** gives every WooCommerce order its own private order chat. The customer writes from **My Account > Orders > View**, right under the order details. Your team answers from a dedicated **Inbox** in the WordPress admin, or straight from the order edit screen, with the customer and the order beside the messages.
 
-Customer messages stay with the order in your own database. There is no chat service to sign up for, no monthly fee and no widget loaded from another site.
+Customer messages stay with the order in your own database. There is no chat service to sign up for, no monthly fee and no widget loaded from another site. Want to see it first? [Try the live demo](https://demo.devdiggers.com/order-communication-for-woocommerce/).
 
 = Quick links =
 
+* [Free Plugin Live Demo](https://demo.devdiggers.com/order-communication-for-woocommerce/)
+* [Pro Demo](https://demo.devdiggers.com/woocommerce-order-communication/)
 * [Documentation](https://docs.devdiggers.com/woocommerce-order-communication/)
 * [Support](https://wordpress.org/support/plugin/devdiggers-order-communication-for-woocommerce/)
 * [Upgrade to Pro](https://devdiggers.com/product/woocommerce-order-communication/)
@@ -81,7 +83,7 @@ The Inbox lists every order conversation in one place, newest first, so nobody h
 
 = Free vs Pro =
 
-The free plugin is a complete order chat. [Pro](https://devdiggers.com/product/woocommerce-order-communication/) is for stores where answering customers takes real time every day. Inside the free plugin you can see each Pro feature where it would sit, marked PRO.
+The free plugin is a complete order chat. [WooCommerce Order Communication Pro](https://devdiggers.com/product/woocommerce-order-communication/) is for stores where answering customers takes real time every day. Inside the free plugin you can see each Pro feature where it would sit, marked PRO.
 
 === File sharing (Pro) ===
 
@@ -112,7 +114,7 @@ The free plugin is a complete order chat. [Pro](https://devdiggers.com/product/w
 = Automatic installation =
 
 1. In your WordPress admin go to **Plugins > Add New Plugin**.
-2. Search for "DevDiggers Order Communication".
+2. Search for "Order Communication for WooCommerce".
 3. Click **Install Now**, then **Activate**.
 
 = Manual installation =
@@ -183,12 +185,13 @@ Yes. All text is translation ready, and a .pot file is included in the i18n fold
 
 == Screenshots ==
 
-1. The Inbox: every order conversation, the open chat and the order beside it.
-2. The order chat on the customer's view order page in My Account.
-3. The conversation on the WooCommerce order edit screen.
-4. The dashboard with message activity and conversations awaiting a reply.
-5. General settings: allowed order statuses.
-6. Email settings for store and customer notifications.
+1. Inbox with every order conversation, the chat and the order details side by side.
+2. Dashboard with messages received, first response time and reply rate.
+3. Customers chat about an order from the view order page in My Account.
+4. The conversation box on the WooCommerce order edit screen.
+5. General settings for allowed order statuses and closing conversations.
+6. Chat colors and live updates.
+7. Setup wizard.
 
 == External services ==
 
@@ -225,7 +228,7 @@ The DevDiggers services are provided by DevDiggers. By using them you agree to t
 
 == Source code and build tools ==
 
-The admin and storefront JavaScript and CSS in `assets/` are compiled from the human readable source in the `src/` folder, which ships with the plugin. The full source, including the build configuration, is also published on GitHub:
+The admin and storefront JavaScript and CSS in `assets/` are compiled from the `src/` folder with webpack and Babel. The complete, human readable source code, including all build configuration, is published in our public GitHub repository:
 
 https://github.com/DevDiggers-Technologies/order-communication-for-woocommerce
 
@@ -234,7 +237,7 @@ To build the assets from source:
 1. Run `npm install` to install the build dependencies listed in `package.json`.
 2. Run `npm run build` to compile the production assets into `assets/js` and `assets/css`.
 
-The build configuration is in `webpack.config.js` and `babel.config.js`. Two third party libraries used by the admin screens ship unmodified under the MIT licence inside `devdiggers-framework/assets/js/`: Chart.js (https://www.chartjs.org) and Select2 (https://select2.org).
+Two third party libraries used by the admin screens ship unmodified under the MIT licence inside `devdiggers-framework/assets/js/`: Chart.js (https://www.chartjs.org) and Select2 (https://select2.org).
 
 == Changelog ==
 
