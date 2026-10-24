@@ -6,7 +6,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: "
 "https://wordpress.org/support/plugin/devdiggers-order-communication-for-"
 "woocommerce\n"
-"POT-Creation-Date: 2026-10-17 13:41:05+00:00\n"
+"POT-Creation-Date: 2026-10-24 14:04:52+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -110,19 +110,19 @@ msgstr ""
 msgid "%1$dd %2$dh"
 msgstr ""
 
-#: includes/admin/admin-functions.php:120 includes/admin/setup-wizard.php:72
+#: includes/admin/admin-functions.php:128 includes/admin/setup-wizard.php:72
 #: includes/admin-dashboard.php:60 includes/admin-dashboard.php:65
 #: includes/admin-dashboard.php:66
 msgid "Order Communication"
 msgstr ""
 
-#: includes/admin/admin-functions.php:172
-#: includes/admin/admin-functions.php:176
-#: includes/front/front-functions.php:107
+#: includes/admin/admin-functions.php:180
+#: includes/admin/admin-functions.php:184
+#: includes/front/front-functions.php:114
 msgid "Messages"
 msgstr ""
 
-#: includes/admin/admin-functions.php:209
+#: includes/admin/admin-functions.php:217
 #. translators: 1: total messages, 2: unread messages.
 msgid "%1$d messages, %2$d unread"
 msgstr ""
@@ -389,7 +389,7 @@ msgid "Open"
 msgstr ""
 
 #: includes/common/chat-assets.php:52
-#: templates/admin/inbox/inbox-template.php:38
+#: templates/admin/inbox/inbox-template.php:39
 #: templates/order-communication-template.php:88
 #: templates/order-communication-template.php:92
 msgid "Closed"
@@ -411,7 +411,10 @@ msgid ""
 "reopen it."
 msgstr ""
 
-#: includes/common/common-functions.php:185
+#: includes/common/common-functions.php:151
+#: includes/common/common-functions.php:180
+#: includes/common/common-functions.php:197
+#: includes/front/front-functions.php:81
 msgid "You are not allowed to do this."
 msgstr ""
 
@@ -474,25 +477,25 @@ msgstr ""
 msgid "Questions about this order?"
 msgstr ""
 
-#: includes/front/front-functions.php:92
+#: includes/front/front-functions.php:99
 msgid "Message sent successfully."
 msgstr ""
 
-#: includes/front/front-functions.php:130
+#: includes/front/front-functions.php:137
 #. translators: %d: number of unread messages.
 msgid "%d new reply"
 msgid_plural "%d new replies"
 msgstr[0] ""
 msgstr[1] ""
 
-#: includes/front/front-functions.php:133
+#: includes/front/front-functions.php:140
 #. translators: %d: number of messages.
 msgid "%d message"
 msgid_plural "%d messages"
 msgstr[0] ""
 msgstr[1] ""
 
-#: includes/front/front-functions.php:135
+#: includes/front/front-functions.php:142
 msgid "Message us"
 msgstr ""
 
@@ -627,87 +630,93 @@ msgstr ""
 msgid "Files attached to the notification emails"
 msgstr ""
 
-#: templates/admin/configuration/emails-configuration-template.php:36
+#: templates/admin/configuration/emails-configuration-template.php:29
+#. translators: %s: placeholder list.
+msgid "Available placeholders: %s"
+msgstr ""
+
+#: templates/admin/configuration/emails-configuration-template.php:33
+msgid ""
+"The full body of the email. {message} is replaced with the chat message in "
+"a quote box and {reply_button} with a button that opens the conversation. "
+"If you remove {message}, the chat message is added at the end so it is "
+"never lost."
+msgstr ""
+
+#: templates/admin/configuration/emails-configuration-template.php:38
 msgid "Store Notification Email"
 msgstr ""
 
-#: templates/admin/configuration/emails-configuration-template.php:37
+#: templates/admin/configuration/emails-configuration-template.php:39
 msgid ""
 "Sent to your team when a customer writes on an order. It quotes the message "
 "and links straight to the conversation in the Inbox."
 msgstr ""
 
-#: templates/admin/configuration/emails-configuration-template.php:42
-#: templates/admin/configuration/emails-configuration-template.php:99
+#: templates/admin/configuration/emails-configuration-template.php:44
+#: templates/admin/configuration/emails-configuration-template.php:95
 msgid "Enable"
 msgstr ""
 
-#: templates/admin/configuration/emails-configuration-template.php:43
+#: templates/admin/configuration/emails-configuration-template.php:45
 msgid "Email the store when a customer sends a message"
 msgstr ""
 
-#: templates/admin/configuration/emails-configuration-template.php:44
+#: templates/admin/configuration/emails-configuration-template.php:46
 msgid "Turn off if your team works from the Inbox and does not need email alerts."
 msgstr ""
 
-#: templates/admin/configuration/emails-configuration-template.php:51
+#: templates/admin/configuration/emails-configuration-template.php:53
 msgid "Recipients"
 msgstr ""
 
-#: templates/admin/configuration/emails-configuration-template.php:52
+#: templates/admin/configuration/emails-configuration-template.php:54
 msgid ""
 "Who receives store notifications. Separate several addresses with commas. "
 "Defaults to the site admin email."
 msgstr ""
 
-#: templates/admin/configuration/emails-configuration-template.php:61
-#: templates/admin/configuration/emails-configuration-template.php:109
+#: templates/admin/configuration/emails-configuration-template.php:62
+#: templates/admin/configuration/emails-configuration-template.php:104
 msgid "Subject"
 msgstr ""
 
-#: templates/admin/configuration/emails-configuration-template.php:62
-#: templates/admin/configuration/emails-configuration-template.php:110
+#: templates/admin/configuration/emails-configuration-template.php:63
+#: templates/admin/configuration/emails-configuration-template.php:105
 msgid "Subject line of the email. {site_title} is also supported."
 msgstr ""
 
-#: templates/admin/configuration/emails-configuration-template.php:71
-#: templates/admin/configuration/emails-configuration-template.php:119
+#: templates/admin/configuration/emails-configuration-template.php:70
+#: templates/admin/configuration/emails-configuration-template.php:112
 msgid "Heading"
 msgstr ""
 
-#: templates/admin/configuration/emails-configuration-template.php:72
-#: templates/admin/configuration/emails-configuration-template.php:120
+#: templates/admin/configuration/emails-configuration-template.php:71
+#: templates/admin/configuration/emails-configuration-template.php:113
 msgid "Main title shown at the top of the email."
 msgstr ""
 
-#: templates/admin/configuration/emails-configuration-template.php:81
-#: templates/admin/configuration/emails-configuration-template.php:129
+#: templates/admin/configuration/emails-configuration-template.php:78
+#: templates/admin/configuration/emails-configuration-template.php:120
 msgid "Email Message"
 msgstr ""
 
-#: templates/admin/configuration/emails-configuration-template.php:82
-#: templates/admin/configuration/emails-configuration-template.php:130
-msgid ""
-"Free sends this wording. Pro lets you rewrite the whole email with "
-"placeholders."
-msgstr ""
-
-#: templates/admin/configuration/emails-configuration-template.php:93
+#: templates/admin/configuration/emails-configuration-template.php:89
 msgid "Customer Notification Email"
 msgstr ""
 
-#: templates/admin/configuration/emails-configuration-template.php:94
+#: templates/admin/configuration/emails-configuration-template.php:90
 msgid ""
 "Sent to the customer when your team replies. It quotes the reply and has a "
 "button that opens the conversation in My Account. Private notes never send "
 "an email."
 msgstr ""
 
-#: templates/admin/configuration/emails-configuration-template.php:100
+#: templates/admin/configuration/emails-configuration-template.php:96
 msgid "Email the customer when the store replies"
 msgstr ""
 
-#: templates/admin/configuration/emails-configuration-template.php:101
+#: templates/admin/configuration/emails-configuration-template.php:97
 msgid ""
 "Recommended. Most customers do not revisit their account page until they "
 "get an email."
@@ -809,126 +818,130 @@ msgstr ""
 msgid "%s ago"
 msgstr ""
 
-#: templates/admin/inbox/inbox-template.php:36
+#: templates/admin/inbox/inbox-template.php:37
 msgid "All"
 msgstr ""
 
-#: templates/admin/inbox/inbox-template.php:37
+#: templates/admin/inbox/inbox-template.php:38
 msgid "Awaiting Reply"
 msgstr ""
 
-#: templates/admin/inbox/inbox-template.php:75
+#: templates/admin/inbox/inbox-template.php:79
 msgid "Conversations"
 msgstr ""
 
-#: templates/admin/inbox/inbox-template.php:83
+#: templates/admin/inbox/inbox-template.php:87
 msgid "Search name, email, order or message"
 msgstr ""
 
-#: templates/admin/inbox/inbox-template.php:83
+#: templates/admin/inbox/inbox-template.php:87
 msgid "Search conversations"
 msgstr ""
 
-#: templates/admin/inbox/inbox-template.php:127
+#: templates/admin/inbox/inbox-template.php:131
 msgid "No matching conversations"
 msgstr ""
 
-#: templates/admin/inbox/inbox-template.php:129
+#: templates/admin/inbox/inbox-template.php:133
 msgid "You are all caught up"
 msgstr ""
 
-#: templates/admin/inbox/inbox-template.php:131
+#: templates/admin/inbox/inbox-template.php:135
 msgid "No closed conversations"
 msgstr ""
 
-#: templates/admin/inbox/inbox-template.php:133
+#: templates/admin/inbox/inbox-template.php:137
 msgid "No conversations yet"
 msgstr ""
 
-#: templates/admin/inbox/inbox-template.php:140
+#: templates/admin/inbox/inbox-template.php:144
 msgid "Try a different name, email address, order number or word from the message."
 msgstr ""
 
-#: templates/admin/inbox/inbox-template.php:142
+#: templates/admin/inbox/inbox-template.php:146
 msgid "Every customer message has been read. New ones will appear here."
 msgstr ""
 
-#: templates/admin/inbox/inbox-template.php:144
+#: templates/admin/inbox/inbox-template.php:148
 msgid "Conversations you close from the chat header are kept here."
 msgstr ""
 
-#: templates/admin/inbox/inbox-template.php:146
+#: templates/admin/inbox/inbox-template.php:150
 msgid ""
 "When a customer writes about an order, or your team sends the first "
 "message, the conversation shows up here."
 msgstr ""
 
-#: templates/admin/inbox/inbox-template.php:184
+#: templates/admin/inbox/inbox-template.php:188
 msgid "Auto:"
 msgstr ""
 
-#: templates/admin/inbox/inbox-template.php:184
+#: templates/admin/inbox/inbox-template.php:188
 msgid "You:"
 msgstr ""
 
-#: templates/admin/inbox/inbox-template.php:195
+#: templates/admin/inbox/inbox-template.php:199
 #. translators: %d: unread messages.
 msgid "%d new"
 msgid_plural "%d new"
 msgstr[0] ""
 msgstr[1] ""
 
-#: templates/admin/inbox/inbox-template.php:247
+#: templates/admin/inbox/inbox-template.php:209
+msgid "Show older conversations"
+msgstr ""
+
+#: templates/admin/inbox/inbox-template.php:256
 msgid "Registered customer"
 msgstr ""
 
-#: templates/admin/inbox/inbox-template.php:247
+#: templates/admin/inbox/inbox-template.php:256
 msgid "Guest customer"
 msgstr ""
 
-#: templates/admin/inbox/inbox-template.php:255
+#: templates/admin/inbox/inbox-template.php:264
 msgid "Orders"
 msgstr ""
 
-#: templates/admin/inbox/inbox-template.php:259
+#: templates/admin/inbox/inbox-template.php:268
 msgid "Total spent"
 msgstr ""
 
-#: templates/admin/inbox/inbox-template.php:265
+#: templates/admin/inbox/inbox-template.php:274
 msgid "Email"
 msgstr ""
 
-#: templates/admin/inbox/inbox-template.php:268
+#: templates/admin/inbox/inbox-template.php:277
 msgid "Phone"
 msgstr ""
 
-#: templates/admin/inbox/inbox-template.php:272
+#: templates/admin/inbox/inbox-template.php:281
 msgid "Ships to"
 msgstr ""
 
-#: templates/admin/inbox/inbox-template.php:272
+#: templates/admin/inbox/inbox-template.php:281
 msgid "Address"
 msgstr ""
 
-#: templates/admin/inbox/inbox-template.php:283
+#: templates/admin/inbox/inbox-template.php:292
 #: templates/order-communication-template.php:82
 #. translators: %s: order number.
 msgid "Order #%s"
 msgstr ""
 
-#: templates/admin/inbox/inbox-template.php:289
+#: templates/admin/inbox/inbox-template.php:298
 msgid "Placed"
 msgstr ""
 
-#: templates/admin/inbox/inbox-template.php:291
+#: templates/admin/inbox/inbox-template.php:300
 msgid "Payment"
 msgstr ""
 
-#: templates/admin/inbox/inbox-template.php:307
+#: templates/admin/inbox/inbox-template.php:316
 msgid "Total"
 msgstr ""
 
-#: templates/admin/inbox/inbox-template.php:310
+#: templates/admin/inbox/inbox-template.php:319
 msgid "Open Full Order"
 msgstr ""
 
@@ -984,9 +997,7 @@ msgid "Seen"
 msgstr ""
 
 #. Plugin URI of the plugin/theme
-msgid ""
-"https://github.com/DevDiggers-Technologies/order-communication-for-"
-"woocommerce"
+msgid "https://devdiggers.com/product/woocommerce-order-communication/"
 msgstr ""
 
 #. Description of the plugin/theme
