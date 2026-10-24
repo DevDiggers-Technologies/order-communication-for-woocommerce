@@ -111,6 +111,7 @@ if ( ! class_exists( 'DDFW_Assets' ) ) {
 						'moreCharacter'       => esc_html__( 'or more character', 'devdiggers-order-communication-for-woocommerce' ),
 						'noResult'            => esc_html__( 'No result Found', 'devdiggers-order-communication-for-woocommerce' ),
 						'deleteConfirm'       => esc_html__( 'Are you sure you want to delete?', 'devdiggers-order-communication-for-woocommerce' ),
+						'dismiss'             => esc_html__( 'Dismiss', 'devdiggers-order-communication-for-woocommerce' ),
 					],
 					'site_url'          => site_url(),
 					'devdiggers_plugin' => $devdiggers_plugin,

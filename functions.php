@@ -2,7 +2,7 @@
 /**
  * Plugin Name: DevDiggers Order Communication for WooCommerce
  * Description: Give every WooCommerce order its own private conversation. Customers message you from My Account, your team replies from one shared Inbox, with read receipts and email alerts on both sides.
- * Plugin URI: https://github.com/DevDiggers-Technologies/order-communication-for-woocommerce
+ * Plugin URI: https://devdiggers.com/product/woocommerce-order-communication/
  * Author: DevDiggers
  * Author URI: https://devdiggers.com/
  * Version: 1.0.0

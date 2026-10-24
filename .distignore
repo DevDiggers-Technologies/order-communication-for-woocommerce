@@ -1,4 +1,4 @@
-# Files that do not belong in the WordPress.org zip. src/ and the build config ship so the assets can be rebuilt.
+# Files that do not belong in the WordPress.org zip.
 .distignore
 .git
 .gitignore
@@ -18,3 +18,13 @@ phpcs.xml
 
 # GitHub readme. readme.txt ships instead.
 README.md
+Thumbs.db
+__MACOSX
+graphify-out
+.graphifyignore
+
+# Build source and config. Published on GitHub, not shipped.
+src
+package.json
+webpack.config.js
+babel.config.js

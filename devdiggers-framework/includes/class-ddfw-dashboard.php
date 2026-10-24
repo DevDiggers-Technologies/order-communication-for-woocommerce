@@ -509,6 +509,7 @@ if ( ! class_exists( 'DDFW_Dashboard' ) ) {
 					'currencySymbol' => $currency_symbol,
 					'i18n'           => [
 						'noData' => esc_html__( 'No data available', 'devdiggers-order-communication-for-woocommerce' ),
+						'total'  => esc_html__( 'Total', 'devdiggers-order-communication-for-woocommerce' ),
 					],
 				]
 			);

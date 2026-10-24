@@ -75,8 +75,15 @@ if ( ! class_exists( 'DDWCOC_Front_Functions' ) ) {
 				return;
 			}
 
+			$order_id = isset( $_POST['ddwcoc_order_id'] ) ? absint( $_POST['ddwcoc_order_id'] ) : 0;
+
+			if ( ! current_user_can( 'view_order', $order_id ) ) {
+				wc_add_notice( esc_html__( 'You are not allowed to do this.', 'devdiggers-order-communication-for-woocommerce' ), 'error' );
+				return;
+			}
+
 			$helper = new DDWCOC_Communication_Helper();
-			$access = $helper->ddwcoc_get_access( isset( $_POST['ddwcoc_order_id'] ) ? absint( $_POST['ddwcoc_order_id'] ) : 0 );
+			$access = $helper->ddwcoc_get_access( $order_id );
 
 			if ( is_wp_error( $access ) ) {
 				wc_add_notice( $access->get_error_message(), 'error' );

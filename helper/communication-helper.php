@@ -492,7 +492,7 @@ if ( ! class_exists( 'DDWCOC_Communication_Helper' ) ) {
 			$url      = $to_staff ? self::ddwcoc_get_inbox_url( $order->get_id() ) : $order->get_view_order_url() . '#ddwcoc-chat';
 			$settings = $this->ddwcoc_configuration['email_settings'][ $to_staff ? 'store' : 'customer' ];
 
-			$quote  = '<blockquote style="margin:16px 0;padding:12px 16px;border-left:4px solid #0256ff;background:#f6f8fb;">' . nl2br( esc_html( $content ) ) . '</blockquote>';
+			$quote  = '<div style="margin:16px 0;padding:16px 20px;background:#f3f5f9;border-radius:10px;"><p style="margin:0;">' . nl2br( esc_html( $content ) ) . '</p></div>';
 			$button = '<a href="' . esc_url( $url ) . '" style="display:inline-block;padding:10px 18px;background:#0256ff;color:#fff;border-radius:6px;text-decoration:none;">' . esc_html__( 'Reply to this message', 'devdiggers-order-communication-for-woocommerce' ) . '</a>';
 			$body   = $settings['message'];
 
@@ -501,14 +501,18 @@ if ( ! class_exists( 'DDWCOC_Communication_Helper' ) ) {
 				$body .= '{message}';
 			}
 
-			$body = strtr(
-				$this->ddwcoc_replace_placeholders( $body, $order ),
-				[
-					'{message}'      => $quote,
-					'{reply_button}' => $button,
-					'{reply_url}'    => esc_url( $url ),
-				]
+			// The quote is swapped in after wpautop, which would otherwise wrap it in a <p> with a bottom margin.
+			$body = wpautop(
+				strtr(
+					$this->ddwcoc_replace_placeholders( $body, $order ),
+					[
+						'{message}'      => "\n\nDDWCOC_MESSAGE\n\n",
+						'{reply_button}' => $button,
+						'{reply_url}'    => esc_url( $url ),
+					]
+				)
 			);
+			$body = str_replace( [ '<p>DDWCOC_MESSAGE</p>', 'DDWCOC_MESSAGE' ], $quote, $body );
 
 			/**
 			 * Sends the new message notification through the WooCommerce mailer.
@@ -525,7 +529,7 @@ if ( ! class_exists( 'DDWCOC_Communication_Helper' ) ) {
 					'heading'    => $this->ddwcoc_replace_placeholders( $settings['heading'], $order ),
 					'name'       => $to_staff ? '' : $order->get_billing_first_name(),
 					'order'      => $order,
-					'message'    => wpautop( $body ),
+					'message'    => $body,
 				]
 			);
 		}
