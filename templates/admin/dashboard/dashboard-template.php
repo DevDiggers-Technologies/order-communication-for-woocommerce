@@ -42,7 +42,19 @@ if ( ! class_exists( 'DDWCOC_Dashboard_Template' ) ) {
 			$range        = DDFW_Dashboard_Data::get_date_range();
 			$data         = $this->helper->ddwcoc_get_dashboard_data( $range );
 			$current      = $data['current'];
+			$previous     = $data['previous'];
 			$changes      = $data['changes'];
+
+			// A card whose figure did not move still gets a line under it.
+			$no_change = function ( $change, $value ) {
+				if ( 0.0 !== (float) $change || null === $change ) {
+					return '';
+				}
+
+				return empty( $value )
+					? esc_html__( 'None in either period', 'devdiggers-order-communication-for-woocommerce' )
+					: esc_html__( 'No change vs previous period', 'devdiggers-order-communication-for-woocommerce' );
+			};
 
 			new DDFW_Dashboard(
 				[
@@ -57,6 +69,8 @@ if ( ! class_exists( 'DDWCOC_Dashboard_Template' ) ) {
 							'title'       => esc_html__( 'Messages Received', 'devdiggers-order-communication-for-woocommerce' ),
 							'value'       => $current['customer'],
 							'change'      => $changes['customer'],
+							'previous'    => number_format_i18n( $previous['customer'] ),
+							'note'        => $no_change( $changes['customer'], $current['customer'] ),
 							'is_positive' => $changes['customer'] >= 0,
 							'icon'        => DDFW_SVG::get_svg_icon( 'inbox', true ),
 						],
@@ -64,6 +78,8 @@ if ( ! class_exists( 'DDWCOC_Dashboard_Template' ) ) {
 							'title'       => esc_html__( 'Store Replies', 'devdiggers-order-communication-for-woocommerce' ),
 							'value'       => $current['staff'],
 							'change'      => $changes['staff'],
+							'previous'    => number_format_i18n( $previous['staff'] ),
+							'note'        => $no_change( $changes['staff'], $current['staff'] ),
 							'is_positive' => $changes['staff'] >= 0,
 							'icon'        => DDFW_SVG::get_svg_icon( 'users', true ),
 						],
@@ -71,12 +87,15 @@ if ( ! class_exists( 'DDWCOC_Dashboard_Template' ) ) {
 							'title'       => esc_html__( 'Active Conversations', 'devdiggers-order-communication-for-woocommerce' ),
 							'value'       => count( $current['conversations'] ),
 							'change'      => $changes['conversations'],
+							'previous'    => number_format_i18n( count( $previous['conversations'] ) ),
+							'note'        => $no_change( $changes['conversations'], count( $current['conversations'] ) ),
 							'is_positive' => $changes['conversations'] >= 0,
 							'icon'        => DDFW_SVG::get_svg_icon( 'chat', true ),
 						],
 						[
 							'title' => esc_html__( 'Awaiting Reply Now', 'devdiggers-order-communication-for-woocommerce' ),
 							'value' => count( $this->helper->ddwcoc_get_awaiting_order_ids() ),
+							'note'  => esc_html__( 'Unread conversations, right now', 'devdiggers-order-communication-for-woocommerce' ),
 							'icon'  => DDFW_SVG::get_svg_icon( 'alert', true ),
 						],
 					],
@@ -131,41 +150,28 @@ if ( ! class_exists( 'DDWCOC_Dashboard_Template' ) ) {
 		 * @return void
 		 */
 		public function ddwcoc_render_awaiting() {
-			$rows = $this->helper->ddwcoc_get_awaiting_order_ids( 6, true );
+			$items = [];
 
-			if ( empty( $rows ) ) {
-				?>
-				<div class="ddfw-dash-no-data"><?php esc_html_e( 'Inbox zero. Every customer has an answer.', 'devdiggers-order-communication-for-woocommerce' ); ?></div>
-				<?php
-				return;
+			foreach ( $this->helper->ddwcoc_get_awaiting_order_ids( 6, true ) as $row ) {
+				$order = wc_get_order( $row->order_id );
+
+				if ( ! $order ) {
+					continue;
+				}
+
+				$items[] = [
+					'url'         => DDWCOC_Communication_Helper::ddwcoc_get_inbox_url( $order->get_id() ),
+					'title'       => '#' . $order->get_order_number() . ' ' . $order->get_formatted_billing_full_name(),
+					/* translators: %d: unread messages. */
+					'meta'        => sprintf( _n( '%d unread message', '%d unread messages', (int) $row->unread, 'devdiggers-order-communication-for-woocommerce' ), (int) $row->unread ),
+					'image'       => get_avatar_url( $order->get_billing_email(), [ 'size' => 72 ] ),
+					'shape'       => 'round',
+					'value'       => esc_html( DDWCOC_Dashboard_Helper::ddwcoc_format_duration( time() - strtotime( $row->waiting_since . ' UTC' ) ) ),
+					'value_class' => 'negative',
+				];
 			}
-			?>
-			<div class="ddfw-dash-list">
-				<?php
-				foreach ( $rows as $row ) :
-					$order = wc_get_order( $row->order_id );
-					if ( ! $order ) {
-						continue;
-					}
-					?>
-					<div class="ddfw-dash-list-item">
-						<div class="ddfw-dash-list-avatar"><?php echo wp_kses_post( get_avatar( $order->get_billing_email(), 32 ) ); ?></div>
-						<div class="ddfw-dash-list-info">
-							<div class="ddfw-dash-list-title"><a href="<?php echo esc_url( DDWCOC_Communication_Helper::ddwcoc_get_inbox_url( $order->get_id() ) ); ?>"><strong>#<?php echo esc_html( $order->get_order_number() . ' ' . $order->get_formatted_billing_full_name() ); ?></strong></a></div>
-							<div class="ddfw-dash-list-meta">
-								<?php
-								/* translators: %d: unread messages. */
-								echo esc_html( sprintf( _n( '%d unread message', '%d unread messages', (int) $row->unread, 'devdiggers-order-communication-for-woocommerce' ), (int) $row->unread ) );
-								?>
-							</div>
-						</div>
-						<div class="ddfw-dash-list-value negative">
-							<?php echo esc_html( DDWCOC_Dashboard_Helper::ddwcoc_format_duration( time() - strtotime( $row->waiting_since . ' UTC' ) ) ); ?>
-						</div>
-					</div>
-				<?php endforeach; ?>
-			</div>
-			<?php
+
+			DDFW_Dashboard::render_list( $items, __( 'Inbox zero. Every customer has an answer.', 'devdiggers-order-communication-for-woocommerce' ) );
 		}
 
 		/**
@@ -195,42 +201,23 @@ if ( ! class_exists( 'DDWCOC_Dashboard_Template' ) ) {
 		 * @return void
 		 */
 		public function ddwcoc_render_recent_messages() {
-			$messages = $this->helper->ddwcoc_get_recent_customer_messages();
+			$items = [];
 
-			if ( empty( $messages ) ) {
-				?>
-				<div class="ddfw-dash-no-data"><?php esc_html_e( 'No customer messages yet', 'devdiggers-order-communication-for-woocommerce' ); ?></div>
-				<?php
-				return;
+			foreach ( $this->helper->ddwcoc_get_recent_customer_messages() as $message ) {
+				$order = wc_get_order( $message->comment_post_ID );
+
+				$items[] = [
+					'url'   => $order ? DDWCOC_Communication_Helper::ddwcoc_get_inbox_url( $order->get_id() ) : '',
+					'title' => $order ? $message->comment_author . ' #' . $order->get_order_number() : $message->comment_author,
+					'meta'  => wp_trim_words( wp_strip_all_tags( $message->comment_content ), 12 ),
+					'image' => get_avatar_url( $message->comment_author_email, [ 'size' => 72 ] ),
+					'shape' => 'round',
+					/* translators: %s: human time difference. */
+					'value' => esc_html( sprintf( __( '%s ago', 'devdiggers-order-communication-for-woocommerce' ), human_time_diff( strtotime( $message->comment_date_gmt . ' UTC' ) ) ) ),
+				];
 			}
-			?>
-			<div class="ddfw-dash-list">
-				<?php
-				foreach ( $messages as $message ) :
-					$order = wc_get_order( $message->comment_post_ID );
-					$url   = $order ? DDWCOC_Communication_Helper::ddwcoc_get_inbox_url( $order->get_id() ) : '';
-					?>
-					<div class="ddfw-dash-list-item">
-						<div class="ddfw-dash-list-avatar"><?php echo wp_kses_post( get_avatar( $message->comment_author_email, 32 ) ); ?></div>
-						<div class="ddfw-dash-list-info">
-							<div class="ddfw-dash-list-title">
-								<strong><?php echo esc_html( $message->comment_author ); ?></strong>
-								<?php if ( $order ) : ?>
-									<a href="<?php echo esc_url( $url ); ?>">#<?php echo esc_html( $order->get_order_number() ); ?></a>
-								<?php endif; ?>
-							</div>
-							<div class="ddfw-dash-list-meta"><?php echo esc_html( wp_trim_words( wp_strip_all_tags( $message->comment_content ), 12 ) ); ?></div>
-						</div>
-						<div class="ddfw-dash-list-value">
-							<?php
-							/* translators: %s: human time difference. */
-							echo esc_html( sprintf( __( '%s ago', 'devdiggers-order-communication-for-woocommerce' ), human_time_diff( strtotime( $message->comment_date_gmt . ' UTC' ) ) ) );
-							?>
-						</div>
-					</div>
-				<?php endforeach; ?>
-			</div>
-			<?php
+
+			DDFW_Dashboard::render_list( $items, __( 'No customer messages yet', 'devdiggers-order-communication-for-woocommerce' ) );
 		}
 	}
 }
