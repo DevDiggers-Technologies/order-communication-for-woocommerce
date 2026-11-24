@@ -5,7 +5,7 @@
  * Plugin URI: https://devdiggers.com/product/woocommerce-order-communication/
  * Author: DevDiggers
  * Author URI: https://devdiggers.com/
- * Version: 1.0.0
+ * Version: 1.1.0
  * Text Domain: devdiggers-order-communication-for-woocommerce
  * Domain Path: /i18n
  * Requires at least: 6.5
@@ -52,7 +52,9 @@ if ( ! class_exists( 'DDWCOC_Free_Init' ) ) {
 		 * Class constructor.
 		 */
 		public function __construct() {
-			add_action( 'init', [ $this, 'ddwcoc_init' ] );
+			// Priority 9: WooCommerce reads the email actions at init 10, so the plugin's emails ( ddwcoc_mail ) must be
+			// registered before that, whatever order the plugins load in.
+			add_action( 'init', [ $this, 'ddwcoc_init' ], 9 );
 			add_filter( 'plugin_action_links_' . plugin_basename( __FILE__ ), [ $this, 'ddwcoc_plugin_settings_link' ] );
 			add_filter( 'plugin_row_meta', [ $this, 'ddwcoc_plugin_row_meta' ], 10, 2 );
 		}

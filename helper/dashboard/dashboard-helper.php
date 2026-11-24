@@ -100,6 +100,7 @@ if ( ! class_exists( 'DDWCOC_Dashboard_Helper' ) ) {
 
 			return [
 				'current'  => $current,
+				'previous' => $previous,
 				'changes'  => [
 					'customer'      => $this->ddwcoc_change( $current['customer'], $previous['customer'] ),
 					'staff'         => $this->ddwcoc_change( $current['staff'], $previous['staff'] ),
@@ -114,11 +115,11 @@ if ( ! class_exists( 'DDWCOC_Dashboard_Helper' ) ) {
 		 *
 		 * @param float $current  Current.
 		 * @param float $previous Previous.
-		 * @return float
+		 * @return float|null Null when the previous period had nothing to compare with.
 		 */
 		protected function ddwcoc_change( $current, $previous ) {
 			if ( ! $previous ) {
-				return $current ? 100 : 0;
+				return $current ? null : 0;
 			}
 
 			return round( ( $current - $previous ) / $previous * 100, 1 );

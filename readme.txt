@@ -9,7 +9,7 @@ Tested up to: 7.1
 Requires PHP: 7.4
 WC requires at least: 9.0
 WC tested up to: 11.2
-Stable tag: 1.0.0
+Stable tag: 1.1.0
 License: GPLv3 or later
 License URI: https://www.gnu.org/licenses/gpl-3.0.html
 
@@ -81,6 +81,15 @@ The Inbox lists every order conversation in one place, newest first, so nobody h
 * A dashboard with messages received, store replies, active conversations, conversations awaiting a reply, a daily activity chart and the latest customer messages.
 * A short setup wizard on first activation.
 * Compatible with WooCommerce High-Performance Order Storage (HPOS).
+
+=== AI assistants (MCP) ===
+
+Ask Claude, ChatGPT, Cursor, VS Code or any MCP client about your order conversations: "Who is waiting for an answer?", "What did the customer on order 1234 ask?", "Draft replies for the unanswered messages."
+
+* Tools for an inbox overview, conversation lists with filters and search, one order's full conversation and the messaging settings.
+* A prompt that drafts replies for waiting customers. Drafts only, nothing is sent.
+* Optional tools to reply to a customer on an order and to close or reopen a conversation. They stay off until you allow changes, and every change is logged under WooCommerce > Status > Logs.
+* Managed in DevDiggers Plugins > AI & MCP. Needs WordPress 6.9 or later and the MCP Adapter, which WooCommerce 10.3 and later bundles.
 
 = Free vs Pro =
 
@@ -242,10 +251,22 @@ Two third party libraries used by the admin screens ship unmodified under the MI
 
 == Changelog ==
 
+= 1.1.0 =
+* Added: AI assistants (MCP). Ask Claude, ChatGPT, Cursor, VS Code or any MCP client who is waiting for an answer, what a customer asked on an order, or for an inbox overview, with a prompt that drafts replies for waiting customers (drafts only, nothing is sent).
+* Added: Optional AI tools to reply to a customer on an order and to close or reopen a conversation, the same as in the Inbox. They stay off until you turn on Allow changes.
+* Added: DevDiggers Plugins > AI & MCP page. Connect Claude, ChatGPT, Claude Code, Codex, Cursor, VS Code or any MCP client by signing in and clicking Allow in WordPress, with nothing to copy. Turn each plugin and each write tool on or off, try tools in the Try panel and check the activity log.
+* Improved: Dashboard cards show the previous period's figure and a short note under every number, and say "None in the previous period" instead of a misleading 100% change.
+* Improved: Updated the DevDiggers framework to 1.3.0. On edit screens the title bar with Save stays visible while you scroll on desktop.
+* Fixed: Order message emails to customers and to the store were not being sent. They are sent again.
+* Fixed: Charts and pickers no longer break when a theme or plugin replaces the shared select2 script.
+
 = 1.0.0 =
 * First release.
 
 == Upgrade Notice ==
+
+= 1.1.0 =
+Order message emails are sent again, plus AI assistants (MCP) and a clearer Dashboard. Recommended update.
 
 = 1.0.0 =
 First release.

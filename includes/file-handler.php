@@ -67,6 +67,7 @@ if ( ! class_exists( 'DDWCOC_File_Handler' ) ) {
 			$this->ddwcoc_configuration = $this->ddwcoc_set_globals();
 
 			new Common\DDWCOC_Common_Hooks( $this->ddwcoc_configuration );
+			new Integrations\DDWCOC_MCP_Integration( $this->ddwcoc_configuration );
 
 			if ( is_admin() ) {
 				new DDWCOC_Admin_Dashboard( $this->ddwcoc_configuration );
