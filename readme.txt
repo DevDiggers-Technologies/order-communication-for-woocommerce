@@ -4,7 +4,7 @@ Plugin URI: https://devdiggers.com/product/woocommerce-order-communication/
 Author: DevDiggers
 Author URI: https://devdiggers.com/
 Tags: order chat, order messages, customer messages, customer support, woocommerce chat
-Requires at least: 6.5
+Requires at least: 6.9
 Tested up to: 7.1
 Requires PHP: 7.4
 WC requires at least: 9.0
